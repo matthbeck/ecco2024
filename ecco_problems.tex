@@ -117,26 +117,22 @@ Choose $d+1$ of the $2^d$ vertices of the unit $d$-cube, and let $\Delta$ be the
     for some polynomial $h(z)$ of degree $\le d$.  Furthermore, $f(n)$ has
     degree $d$ if and only if $h(1) \ne 0$.
 
-\item Verify (parts of) the classification picture of degree-2 Ehrhart polynomials $c_2 t^2 + c_1 t + 1$: every
-half-integral point in the figure below corresponds to an Ehrhart polynomial.
 
-\begin{center}
-\includegraphics[totalheight=3.5in]{../dim2cone}
-\end{center}
-
-\item \open Give the corresponding classification picture of degree-3 Ehrhart polynomials. 
- 
 \end{enumerate}
 
 % ========================================================
 
 {\sc Matthias Beck} \hfill {\tt https://matthbeck.github.io/}
 
-\end{document}
+\newpage
+\begin{center}
+\Large{\bf Ehrhart Polynomials} 
 
-% ========================================================
+\normalsize
+VIII Encuentro Colombiano De Combinatoria
+\end{center}
 
-\paragraph{II. Generating Functions}
+\paragraph{Day II: Ehrhart Theory}
 
 \begin{enumerate}[(1)]
 \vspace{-10pt}
@@ -151,35 +147,28 @@ half-integral point in the figure below corresponds to an Ehrhart polynomial.
 \item Derive inequalities for the coefficients of $h(z)$ if we know that both $a(z)$ and $b(z)$ have only nonnegative
 coefficients.
 
+\item Verify (parts of) the classification picture of degree-2 Ehrhart polynomials $c_2 t^2 + c_1 t + 1$: every
+half-integral point in the figure below corresponds to an Ehrhart polynomial.
+
+\begin{center}
+\includegraphics[totalheight=3.5in]{../dim2cone}
+\end{center}
+
+\item \open Give the corresponding classification picture of degree-3 Ehrhart polynomials. 
+ 
 \item Give an example of a polynomial $f(n)$ with (some) negative coefficients whose corresponding generating function
 numerator polynomial $h(z)$ has only positive coefficients.
 
 \item For a lattice polytope $\cP$, the numerator of the generating function is the \emph{$h^*$-polynomial} of $\cP$.
 Give a non-unimodal example of an $h^*$-polynomial.
 
-\item 
+\item \open
 Now let
 $\cP = \left\{ \bx \in [0,1]^d : \, x_1 + x_2 + \dots + x_d = k \right\}$,
-for your favorite integers $1 \le k < d$. (This is the \emph{$(d, k)$-hypersimplex}.)
+for your favorite integers $2 \le k \le d-2$. 
+(This is the \emph{$(d, k)$-hypersimplex}.)
 Prove that the $h^*$-polynomial of $\cP$ is unimodal.
-(This is open.)
  
-\end{enumerate}
-
-\paragraph{IV. Betke--McMullen--Stapledon}
-
-\begin{enumerate}[(1)]
-\vspace{-10pt}
-
-\item A linear inequality $a_0 x_0 + a_1 x_1 + \dots + a_d x_d \ge 0$ is \emph{balanced} if $a_0 + a_1 + \dots + a_d = 0$.
-Find a complete set of balanced inequalities for the coefficients of every $h^*$-polynomial of degree $d$ for the first positive
-integers~$d$. (This is open for $d \ge 6$.)
-
-\item In the Ehrhart setting, the nonnegativity of $h^*(z)$ was proved in 1980, whereas the nonnegativitiy of the accompanying
-polynomials $a(z)$ and $b(z)$ (which is, naturally, stronger) has been known only for 10 years. Try this same setup for your favorite (combinatorial) polynomial with nonnegative coefficients.
-
-\end{enumerate}
-
 \item Given a polytope $\cP \subseteq \RR^d$ with vertices $\bv_1, \bv_2, \dots, \bv_n$, randomly choose $h_1, h_2,
 \dots, h_n \in \RR$, and define the new polytope $\cQ \subseteq \RR^{ d+1 }$ as the convex hull of
 $(\bv_1, h_1), (\bv_2, h_2), \dots, (\bv_n, h_n)$.
@@ -190,4 +179,7 @@ Show that all lower faces of $\cQ$ are simplices, and that their projections und
 
 \end{enumerate}
 
+\end{document}
+
+% ========================================================
 
