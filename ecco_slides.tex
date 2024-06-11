@@ -561,11 +561,16 @@ Let's compute \bm L_\Diamond(t) \em for \bm d=3 \em \dots
 \hspace{3in}
 \bm \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \em 
 
+\vspace{-.1in}
 Exercise:
 \newcommand\DouPyr{\operatorname{BiPyr}} 
 \bm \displaystyle
 \Ehr_{ \DouPyr (\P) } (z) \ = \ \frac{ 1+z }{ 1-z } \Ehr_\P (z) 
 \em
+
+\vspace{.1in}
+\hspace{3.5in}
+\dots for unit cubes \ \green $\longrightarrow$ \ \black Eulerian polynomials
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -653,19 +658,84 @@ Pfeifle (2010).
 
 \vspace{-.2in}
 \begin{enumerate}[\mybullet]
-\item Volume computations \bm \longrightarrow \em don't agonize, discretize 
-\item Integer-point counting in dilated polytopes \bm \longrightarrow \em
+\item Volume computations \ \bm \longrightarrow \em \ don't agonize, discretize 
+\item Integer-point counting in dilated polytopes \ \bm \longrightarrow \em \
 polynomials
 \item Interpolation
 \item Generating functions
 \item Dissections: triangulations, tilings
-\item Tomorrow: enough practice, how does this work in theory?
+\item Tomorrow: enough practice, how \\ does this work in theory?
 \end{enumerate}
 
+\vspace{-3.2in}
+\hspace{5.7in}
+\includegraphics[totalheight=3.5in]{../../David/truncsmallicos_arrows-eps-converted-to}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\end{document}
+% \end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\thispagestyle{empty}
+\
+
+\begin{center}
+  {\green\LARGE \textbf{Ehrhart Polynomials} \\[12pt]
+\normalsize
+Day II: Some Theory}
+\end{center}
+
+\vspace{-.2in}
+%\hspace{5.3in}
+\includegraphics[totalheight=5in]{../../David/sublattice3-eps-converted-to}
+
+\vspace{-4.5in} 
+\blue
+\hspace{5in}
+Matthias Beck
+\\[5pt]
+\black
+\hspace{5in}
+San Francisco State University
+\\[5pt]
+\blue
+\hspace{5in}
+https://matthbeck.github.io/
+\black
+
+\vspace{1in} 
+\hspace{5in}
+VIII Encuentro Colombiano 
+
+\vspace{-.4in} 
+\hspace{5in}
+De Combinatoria
+
+\black
+
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Any questions about yesterday?}
+
+\vspace{-.1in}
+\hspace{4.3in}
+\includegraphics[totalheight=2in]{../../David/preface_disc-eps-converted-to}
+\hspace{-.1in}
+\includegraphics[totalheight=2in]{../../David/preface_cont-eps-converted-to}
+
+\vspace{-2.9in}
+\includegraphics[totalheight=3.3in]{../../David/octahedron-eps-converted-to}
+
+\vspace{-.5in}
+\includegraphics[totalheight=3in]{../../David/zonotopepaving-eps-converted-to}
+
+\vspace{-3.3in}
+\hspace{6in}
+\includegraphics[totalheight=3in]{../../David/trunccube_arrows-eps-converted-to}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -693,18 +763,18 @@ Equivalently,
 
 \vspace{-.2in}
 \hspace{3.5in}
-\bm \Ehr_\P (z) \, = \, \dfrac{ h(z) }{ (1-z)^{ \dim \P + 1 } } \em
+\bm \Ehr_\P (z) \, = \, \dfrac{ h_\P^*(z) }{ (1-z)^{ \dim \P + 1 } } \em
 
 \vspace{-.2in}
 \hspace{1.8in}
-where the \red Ehrhart h-vector 
-\bm h(z) \em satisfies \bm h(0) = 1 \em and
+where the \red $h^*$-polynomial
+\bm h_\P^*(z) \em satisfies \bm h_\P^*(0) = 1 \em and
 
 \vspace{-.4in}
 \hspace{1.8in}
-\bm h(1) = (\dim \P)! \vol(\P) \em\!\!.
+\bm h_\P^*(1) = (\dim \P)! \vol(\P) \em\!\!.
 
-\vspace{-3.9in}
+\vspace{-4.3in}
 \includegraphics[totalheight=2.5in]{../ehrhart}
 
 \freezepage
@@ -734,23 +804,136 @@ Equivalently,
 
 \vspace{-.2in}
 \hspace{3.5in}
-\bm \Ehr_\P (z) \, = \, \dfrac{ h(z) }{ (1-z)^{ \dim \P + 1 } } \em
+\bm \Ehr_\P (z) \, = \, \dfrac{ h_\P^*(z) }{ (1-z)^{ \dim \P + 1 } } \em
 
 \vspace{-.2in}
 \hspace{1.8in}
-where the \red Ehrhart h-vector 
-\bm h(z) \em satisfies \bm h(0) = 1 \em and
+where the \red $h^*$-polynomial
+\bm h_\P^*(z) \em satisfies \bm h_\P^*(0) = 1 \em and
 
 \vspace{-.4in}
 \hspace{1.8in}
-\bm h(1) = (\dim \P)! \vol(\P) \em\!\!.
+\bm h_\P^*(1) = (\dim \P)! \vol(\P) \em\!\!.
 
-\vspace{-3.9in}
+\vspace{-4.3in}
+\includegraphics[totalheight=2.5in]{../ehrhart}
+
+\vspace{1.4in}
+We saw instances yesterday:
+\bm
+\P \ = \ [0,1]^d
+\em
+
+%\vspace{-2.1in}
+\green $\longrightarrow$ \ \bm \displaystyle L_\P(t) = (t+1)^d \em
+
+\bm h_\P^*(z) \em --- Eulerian polynomial
+
+\vspace{-2.8in}
+\hspace{6in}
+\includegraphics[totalheight=2.4in]{../../David/cube-eps-converted-to}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Ehrhart Polynomials}
+
+\hspace{1.8in}
+\red Theorem \black
+(Ehrhart 1962) 
+For any lattice polytope \bm \P \em\!\!,
+
+\vspace{-.4in}
+\hspace{1.8in}
+\bm L_\P (t) \em is a polynomial in \bm t \em of
+degree \bm \dim \P \em with 
+
+\vspace{-.4in}
+\hspace{1.8in}
+leading coefficient \bm \vol \P \em %(normalized to \bm \aff \P \cap \Z^d \em\!\!) 
+and constant term \bm 1 \em\!\!.
+
+%\vspace{-.4in}
+\hspace{1.8in}
+Equivalently,
+\bm \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \em is rational: 
+
+\vspace{-.2in}
+\hspace{3.5in}
+\bm \Ehr_\P (z) \, = \, \dfrac{ h_\P^*(z) }{ (1-z)^{ \dim \P + 1 } } \em
+
+\vspace{-.2in}
+\hspace{1.8in}
+where the \red $h^*$-polynomial
+\bm h_\P^*(z) \em satisfies \bm h_\P^*(0) = 1 \em and
+
+\vspace{-.4in}
+\hspace{1.8in}
+\bm h_\P^*(1) = (\dim \P)! \vol(\P) \em\!\!.
+
+\vspace{-4.3in}
+\includegraphics[totalheight=2.5in]{../ehrhart}
+
+\vspace{.1in}
+%\hspace{.3in}
+\includegraphics[totalheight=3in]{../../David/fig22c}
+
+\vspace{-2.1in}
+\hspace{3.1in}
+\bm
+\Delta \ = \ \left\{ \x \in \R_{ \ge 0 }^d : \, x_1 + x_2 + \cdots + x_d \le 1 \right\}
+\em
+
+%\vspace{-2.1in}
+\hspace{3.1in}
+\bm \displaystyle L_\Delta(t) = \binom{ d+t } d \em
+\hspace{1.1in}
+\bm h_\P^* (z) = 1 \em
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Ehrhart Polynomials}
+
+\hspace{1.8in}
+\red Theorem \black
+(Ehrhart 1962) 
+For any lattice polytope \bm \P \em\!\!,
+
+\vspace{-.4in}
+\hspace{1.8in}
+\bm L_\P (t) \em is a polynomial in \bm t \em of
+degree \bm \dim \P \em with 
+
+\vspace{-.4in}
+\hspace{1.8in}
+leading coefficient \bm \vol \P \em %(normalized to \bm \aff \P \cap \Z^d \em\!\!) 
+and constant term \bm 1 \em\!\!.
+
+%\vspace{-.4in}
+\hspace{1.8in}
+Equivalently,
+\bm \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \em is rational: 
+
+\vspace{-.2in}
+\hspace{3.5in}
+\bm \Ehr_\P (z) \, = \, \dfrac{ h_\P^*(z) }{ (1-z)^{ \dim \P + 1 } } \em
+
+\vspace{-.2in}
+\hspace{1.8in}
+where the \red $h^*$-polynomial
+\bm h_\P^*(z) \em satisfies \bm h_\P^*(0) = 1 \em and
+
+\vspace{-.4in}
+\hspace{1.8in}
+\bm h_\P^*(1) = (\dim \P)! \vol(\P) \em\!\!.
+
+\vspace{-4.3in}
 \includegraphics[totalheight=2.5in]{../ehrhart}
 
 \vspace{1.5in}
 \green Seeming dichotomy: \bm \displaystyle \vol(\P) = \lim_{ t \to \infty } \frac{ 1 }{ t^{ \dim \P } } \, L_\P(t) \em can be computed discretely via a finite amount of data.
 
+\thawpage
+\freezepage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \foilhead[-20pt]{\green Ehrhart Polynomials}
@@ -772,7 +955,8 @@ and constant term \bm 1 \em\!\!.
 
 \vspace{-.1in}
 \hspace{2.2in}
-\bm \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \, = \, \dfrac{ h(z) }{ (1-z)^{ d + 1 } } \em
+\bm \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \, = \,
+\dfrac{ h_\P^*(z) }{ (1-z)^{ d + 1 } } \em
 
 \vspace{-2.9in}
 \includegraphics[totalheight=2.5in]{../ehrhart}
@@ -783,7 +967,7 @@ Equivalent descriptions of an Ehrhart polynomial:
 \begin{enumerate}[\mybullet]
 \item \bm L_\P(t) \, = \, c_d \, t^d + c_{ d-1 } \, t^{ d-1 } + \dots + c_0 \em
 \item via roots of \bm L_\P(t) \em 
-\item \bm \Ehr_\P(z) \em \quad $\longrightarrow$ \quad \bm L_\P(t) \, = \, h_0 \binom{ t+d } d + h_1 \binom{ t+d-1 } d + \dots + h_d \binom{ t } d \em
+\item \bm \Ehr_\P(z) \em \quad $\longrightarrow$ \quad \bm L_\P(t) \, = \, h^*_0 \binom{ t+d } d + h^*_1 \binom{ t+d-1 } d + \dots + h^*_d \binom{ t } d \em
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -807,7 +991,8 @@ and constant term \bm 1 \em\!\!.
 
 \vspace{-.1in}
 \hspace{2.2in}
-\bm \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \, = \, \dfrac{ h(z) }{ (1-z)^{ d + 1 } } \em
+\bm \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \, = \,
+\dfrac{ h_\P^*(z) }{ (1-z)^{ d + 1 } } \em
 
 \vspace{-2.9in}
 \includegraphics[totalheight=2.5in]{../ehrhart}
@@ -818,7 +1003,7 @@ Equivalent descriptions of an Ehrhart polynomial:
 \begin{enumerate}[\mybullet]
 \item \bm L_\P(t) \, = \, c_d \, t^d + c_{ d-1 } \, t^{ d-1 } + \dots + c_0 \em
 \item via roots of \bm L_\P(t) \em 
-\item \bm \Ehr_\P(z) \em \quad $\longrightarrow$ \quad \bm L_\P(t) \, = \, h_0 \binom{ t+d } d + h_1 \binom{ t+d-1 } d + \dots + h_d \binom{ t } d \em
+\item \bm \Ehr_\P(z) \em \quad $\longrightarrow$ \quad \bm L_\P(t) \, = \, h^*_0 \binom{ t+d } d + h^*_1 \binom{ t+d-1 } d + \dots + h^*_d \binom{ t } d \em
 \end{enumerate}
 
 \red Open Problem \black \
@@ -851,7 +1036,7 @@ and constant term \bm 1 \em\!\!.
 \includegraphics[totalheight=2.5in]{../ehrhart}
 
 \hspace{1in}
-$\longrightarrow$ \quad \bm L_\P(t) \, = \, h_0 \binom{ t+d } d + h_1 \binom{ t+d-1 } d + \dots + h_d \binom{ t } d \em
+$\longrightarrow$ \quad \bm L_\P(t) \, = \, h^*_0 \binom{ t+d } d + h^*_1 \binom{ t+d-1 } d + \dots + h^*_d \binom{ t } d \em
 
 \vspace{.3in}
 \red Theorem \black
@@ -861,7 +1046,7 @@ enumerates the \green interior \black lattice points in \bm t \P \em\!\!.
 Equivalently,
 
 \hspace{1in}
-\bm L_{ \P^\circ } (t) \, = \, h_d \binom{ t+d-1 } d + h_{d-1} \binom{ t+d-2 } d + \dots + h_0 \binom{ t-1 } d \em
+\bm L_{ \P^\circ } (t) \, = \, h^*_d \binom{ t+d-1 } d + h^*_{d-1} \binom{ t+d-2 } d + \dots + h^*_0 \binom{ t-1 } d \em
 
 \thawpage
 \freezepage
@@ -892,10 +1077,10 @@ and constant term \bm 1 \em\!\!.
 \includegraphics[totalheight=2.5in]{../ehrhart}
 
 \hspace{1in}
-$\longrightarrow$ \quad \bm L_{ \P^\circ } (t) \, = \, h_d \binom{ t+d-1 } d + h_{d-1} \binom{ t+d-2 } d + \dots + h_0 \binom{ t-1 } d \em
+$\longrightarrow$ \quad \bm L_{ \P^\circ } (t) \, = \, h^*_d \binom{ t+d-1 } d + h^*_{d-1} \binom{ t+d-2 } d + \dots + h^*_0 \binom{ t-1 } d \em
 
 \vspace{.3in}
-\red Theorem \black (Stanley 1980) \bm h_0, h_1, \dots, h_d \em are nonnegative integers.
+\red Theorem \black (Stanley 1980) \bm h^*_0, h^*_1, \dots, h^*_d \em are nonnegative integers.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -924,13 +1109,13 @@ and constant term \bm 1 \em\!\!.
 \includegraphics[totalheight=2.5in]{../ehrhart}
 
 \hspace{1in}
-$\longrightarrow$ \quad \bm L_{ \P^\circ } (t) \, = \, h_d \binom{ t+d-1 } d + h_{d-1} \binom{ t+d-2 } d + \dots + h_0 \binom{ t-1 } d \em
+$\longrightarrow$ \quad \bm L_{ \P^\circ } (t) \, = \, h^*_d \binom{ t+d-1 } d + h^*_{d-1} \binom{ t+d-2 } d + \dots + h^*_0 \binom{ t-1 } d \em
 
 \vspace{.3in}
-\red Theorem \black (Stanley 1980) \bm h_0, h_1, \dots, h_d \em are nonnegative integers.
+\red Theorem \black (Stanley 1980) \bm h^*_0, h^*_1, \dots, h^*_d \em are nonnegative integers.
 
 \vspace{.3in}
-\red Corollary \black \ If \bm h_{d+1-k} > 0 \em then \bm k \P^\circ \em contains an integer point.
+\red Corollary \black \ If \bm h^*_{d+1-k} > 0 \em then \bm k \P^\circ \em contains an integer point.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -958,10 +1143,10 @@ and constant term \bm 1 \em\!\!.
 \vspace{-2.9in}
 \includegraphics[totalheight=2.5in]{../ehrhart}
 
-\red Theorem \black (Stanley 1980) \bm h_0, h_1, \dots, h_d \em are nonnegative integers.
+\red Theorem \black (Stanley 1980) \bm h^*_0, h^*_1, \dots, h^*_d \em are nonnegative integers.
 
 \red Theorem \black (Betke--McMullen 1985, Stapledon 2009)
-If \bm h_d > 0 \em then
+If \bm h^*_d > 0 \em then
 \be
   h(z) \, = \, a(z) + z \, b(z)
 \ee
@@ -995,10 +1180,10 @@ and constant term \bm 1 \em\!\!.
 \vspace{-2.9in}
 \includegraphics[totalheight=2.5in]{../ehrhart}
 
-\red Theorem \black (Stanley 1980) \bm h_0, h_1, \dots, h_d \em are nonnegative integers.
+\red Theorem \black (Stanley 1980) \bm h^*_0, h^*_1, \dots, h^*_d \em are nonnegative integers.
 
 \red Theorem \black (Betke--McMullen 1985, Stapledon 2009)
-If \bm h_d > 0 \em then
+If \bm h^*_d > 0 \em then
 \be
   h(z) \, = \, a(z) + z \, b(z)
 \ee
