@@ -51,6 +51,10 @@
 \def\ea{\end{eqnarray*} \black}
 
 \def\x{{\boldsymbol x}}
+\def\a{{\boldsymbol a}}
+\def\b{{\boldsymbol b}}
+\def\p{{\boldsymbol p}}
+\def\q{{\boldsymbol q}}
 \def\c{c}
 \DeclareMathOperator{\U}{U}
 
@@ -63,6 +67,7 @@
 \def\R{\mathbb{R}}
 \def\P{\mathcal{P}}
 \def\K{\mathcal{K}}
+\def\cZ{\mathcal{Z}}
 \def\m{\mathbf{m}}
 \def\z{\mathbf{z}}
 \newcommand\cone{\operatorname{cone}} 
@@ -518,14 +523,14 @@ The \red cross-polytope \bm \Diamond \in \R^d \em is
 \vspace{-2.3in}
 Let's compute \bm L_\Diamond(t) \em for \bm d=3 \em \dots
 
-\vspace{.2in}
+\vspace{-.1in}
 \begin{enumerate}[\mybullet]
 \item Interpolation
 \end{enumerate}
 
-\vspace{-.9in}
-\hspace{2.3in}
-\includegraphics[totalheight=2.5in]{interpol}
+\vspace{-.1in}
+%\hspace{2.3in}
+\includegraphics[totalheight=2.3in]{interpol}
 
 % V = matrix.vandermonde([1,2,3,4])
 
@@ -561,6 +566,106 @@ Exercise:
 \bm \displaystyle
 \Ehr_{ \DouPyr (\P) } (z) \ = \ \frac{ 1+z }{ 1-z } \Ehr_\P (z) 
 \em
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Zonotopes}
+
+\vspace{-1.4in}
+\hspace{7in}
+\includegraphics[totalheight=2.2in]{../../David/trunccube_arrows-eps-converted-to}
+
+\vspace{-1.4in}
+Line segment \
+\bm [\a,\b] := \{ (1-\lambda) \, \a + \lambda \, \b : \, 0 \le \lambda \le 1 \} \em
+
+Minkowski sum \
+\bm \K_1 + \K_2 \ := \ \{ \p+\q : \, \p \in \K_1, \ \q \in \K_2 \} \em 
+
+\hspace{2.5in}
+Zonotope \ \bm \cZ := [\a_1,\b_1] + [\a_2,\b_2] + \cdots + [\a_m,\b_m] \em
+
+\vspace{-.9in}
+\includegraphics[totalheight=2.2in]{../../David/zonotopeex-eps-converted-to}
+
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Zonotopes}
+
+\vspace{-1.4in}
+\hspace{7in}
+\includegraphics[totalheight=2.2in]{../../David/trunccube_arrows-eps-converted-to}
+
+\vspace{-1.4in}
+Line segment \
+\bm [\a,\b] := \{ (1-\lambda) \, \a + \lambda \, \b : \, 0 \le \lambda \le 1 \} \em
+
+Minkowski sum \
+\bm \K_1 + \K_2 \ := \ \{ \p+\q : \, \p \in \K_1, \ \q \in \K_2 \} \em 
+
+\hspace{2.5in}
+Zonotope \ \bm \cZ := [\a_1,\b_1] + [\a_2,\b_2] + \cdots + [\a_m,\b_m] \em
+
+\vspace{-.9in}
+\includegraphics[totalheight=2.2in]{../../David/zonotopeex-eps-converted-to}
+
+\vspace{-1.8in}
+\hspace{2.5in}
+Every zonotope admits a \red tiling \black into parallelepipeds
+
+\vspace{-.3in}
+\hspace{4.1in}
+\includegraphics[totalheight=3in]{../../David/zonotopepaving-eps-converted-to}
+
+\vspace{-1.8in}
+\bm \P \em --- half-open \bm d \em\!\!-parallelepiped
+
+\green $\longrightarrow$ \ \bm L_\P(t) \, = \, t^d \em
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Birkhoff--von Neumann Revisited}
+
+\vspace{-.7in}
+\includegraphics[totalheight=5.8in]{../birkhoff9roots}
+
+\vspace{-4.5in}
+\hspace{5in}
+For more about roots of 
+
+\vspace{-.35in}
+\hspace{5in}
+(Ehrhart) polynomials, 
+
+\vspace{-.35in}
+\hspace{5in}
+see Braun (2008) and 
+
+\vspace{-.35in}
+\hspace{5in}
+Pfeifle (2010).
+
+\thawpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Recap Day I}
+
+\vspace{-.2in}
+\begin{enumerate}[\mybullet]
+\item Volume computations \bm \longrightarrow \em don't agonize, discretize 
+\item Integer-point counting in dilated polytopes \bm \longrightarrow \em
+polynomials
+\item Interpolation
+\item Generating functions
+\item Dissections: triangulations, tilings
+\item Tomorrow: enough practice, how does this work in theory?
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -826,34 +931,6 @@ $\longrightarrow$ \quad \bm L_{ \P^\circ } (t) \, = \, h_d \binom{ t+d-1 } d + h
 
 \vspace{.3in}
 \red Corollary \black \ If \bm h_{d+1-k} > 0 \em then \bm k \P^\circ \em contains an integer point.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\foilhead{\green Birkhoff--von Neumann Revisited}
-
-\vspace{-.7in}
-\includegraphics[totalheight=5.8in]{../birkhoff9roots}
-
-\vspace{-4.5in}
-\hspace{5in}
-For more about roots of 
-
-\vspace{-.35in}
-\hspace{5in}
-(Ehrhart) polynomials, 
-
-\vspace{-.35in}
-\hspace{5in}
-see Braun (2008) and 
-
-\vspace{-.35in}
-\hspace{5in}
-Pfeifle (2010).
-
-\thawpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\end{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

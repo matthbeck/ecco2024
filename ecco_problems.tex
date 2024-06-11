@@ -12,6 +12,7 @@
 \oddsidemargin=0in
 \evensidemargin=0in
 
+\def\be{\mathbf{e}}
 \def\bv{\mathbf{v}}
 \def\bx{\mathbf{x}}
 \def\cB{\mathcal{B}}
@@ -20,6 +21,7 @@
 \def\QQ{\mathbb{Q}}
 \def\RR{\mathbb{R}}
 \def\ZZ{\mathbb{Z}}
+\newcommand\vol{\operatorname{vol}} 
 
 \def\open{$[${\tt research problem}$]$ }
 \def\sage{$[${\tt sage}$]$ }
@@ -115,14 +117,16 @@ Prove the following:
 \eulerco d k \ &= \ \sum_{ j=0 }^{ k } (-1)^j \binom{ d+1 }{ j } (k-j)^d . 
 \end{align*}
 
-\newcommand\vol{\operatorname{vol}} 
+\item The permutahedron $\cP_d \in \RR^d$ is defined as the convex hull of
+\[
+  \left\{ \left( \pi(1) - 1, \, \pi(2) - 1, \dots, \, \pi(d) - 1 \right) : \, \pi \in S_d \right\} ,
+\]
+where $S_d$ is the set of all permutations of $\{ 1, 2, \dots, d \}$.
+Show that $P_d$ is a zonotope:
+\[ \cP_d = [\be_1, \be_2] + [\be_1, \be_3] + \dots + [\be_{ d-1 }, \be_d] \, ,\]
+where $\be_1, \be_2, \dots, \be_d$ are the standard unit vectors.
 
-\item \open
-Choose $d+1$ of the $2^d$ vertices of the unit $d$-cube, and let $\Delta$ be the simplex defined by their convex hull.
-\begin{enumerate}[(a)]
-\item Which choice of vertices maximizes $\vol \Delta$?
-\item What is the maximum volume of such a $\Delta$?
-\end{enumerate}
+\item Prove that $\cP_d$ tiles the hyperplane spanned by it.
 
 \item Show that a sequence $f(n)$ is given by a polynomial of degree $\le d$ if and only if
     \[
@@ -130,7 +134,6 @@ Choose $d+1$ of the $2^d$ vertices of the unit $d$-cube, and let $\Delta$ be the
     \]
     for some polynomial $h(z)$ of degree $\le d$.  Furthermore, $f(n)$ has
     degree $d$ if and only if $h(1) \ne 0$.
-
 
 \end{enumerate}
 
@@ -150,6 +153,13 @@ VIII Encuentro Colombiano De Combinatoria
 
 \begin{enumerate}[(1)]
 \vspace{-10pt}
+
+\item \open
+Choose $d+1$ of the $2^d$ vertices of the unit $d$-cube, and let $\Delta$ be the simplex defined by their convex hull.
+\begin{enumerate}[(a)]
+\item Which choice of vertices maximizes $\vol \Delta$?
+\item What is the maximum volume of such a $\Delta$?
+\end{enumerate}
 
 \item For any polynomial $h(z)$ of degree $d$, show there exist unique polynomials $a(z)$ and $b(z)$ such that
 \[
