@@ -684,7 +684,7 @@ polynomials
 \begin{center}
   {\green\LARGE \textbf{Ehrhart Polynomials} \\[12pt]
 \normalsize
-Day II: Some Theory}
+Day II: Generating Functions \& Complexity}
 \end{center}
 
 \vspace{-.2in}
@@ -736,6 +736,35 @@ De Combinatoria
 \vspace{-3.3in}
 \hspace{6in}
 \includegraphics[totalheight=3in]{../../David/trunccube_arrows-eps-converted-to}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Warm-Up: Partition Generating Functions}
+
+A \red partition \bm \lambda = \left( \lambda_1, \lambda_2, \dots, \lambda_n \right) \em of an integer \bm k \ge 0 \em satisfies
+\be
+  k = \lambda_1 + \lambda_2 + \dots + \lambda_n
+  \qquad \text{ \black and } \qquad
+  0 \le \lambda_1 \le \lambda_2 \le \dots \le \lambda_n
+\ee
+\red Goal \ \black Compute \
+% \bm \displaystyle \sum_{ \lambda } x_1^{ \lambda_1 } \cdots x_n^{ \lambda_n } \em \ or \
+\bm \displaystyle \sum_{ \lambda } q^{ \lambda_1 + \dots + \lambda_n } \em 
+% where the sums run through your favorite partitions.
+over your favorite partition family
+
+\red Example \black \ \bm P_3 \em --- family of partitions into at most \bm 3 \em parts
+\be
+  \sum_{ \lambda \in P_3 } q^{ \lambda_1 + \lambda_2 + \lambda_3 } \ = \ \frac{ 1
+}{ (1-q) (1-q^2) (1-q^3) } 
+\ee
+\red Idea \ 
+\bm P_3 \ = \ \left\{ \lambda \in \Z^3 : \, 0 \le \lambda_1 \le \lambda_2 \le
+\lambda_3 \right\} \ = \ \K_3 \cap \Z^3 \em 
+
+\hspace{.56in}
+\bm \K_3 \ = \ \left\{ \x \in \R^3 : \, 0 \le x_1 \le x_2 \le x_3 \right\} \em
+\ \green $\longleftarrow$ \ polyhedral cone $\heartsuit$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
