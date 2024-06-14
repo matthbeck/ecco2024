@@ -69,6 +69,7 @@
 \def\K{\mathcal{K}}
 \def\cZ{\mathcal{Z}}
 \def\m{\mathbf{m}}
+\def\w{\mathbf{w}}
 \def\z{\mathbf{z}}
 \newcommand\cone{\operatorname{cone}} 
 \newcommand\conv{\operatorname{conv}} 
@@ -753,18 +754,267 @@ A \red partition \bm \lambda = \left( \lambda_1, \lambda_2, \dots, \lambda_n \ri
 % where the sums run through your favorite partitions.
 over your favorite partition family
 
-\red Example \black \ \bm P_3 \em --- family of partitions into at most \bm 3 \em parts
+\red Example \black \ \bm P_{ \le 3 } \em --- family of partitions into at most \bm 3 \em parts
 \be
-  \sum_{ \lambda \in P_3 } q^{ \lambda_1 + \lambda_2 + \lambda_3 } \ = \ \frac{ 1
+  \sum_{ \lambda \in P_{ \le 3 } } q^{ \lambda_1 + \lambda_2 + \lambda_3 } \ = \ \frac{ 1
+}{ (1-q) (1-q^2) (1-q^3) } 
+\ee
+
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Warm-Up: Partition Generating Functions}
+
+A \red partition \bm \lambda = \left( \lambda_1, \lambda_2, \dots, \lambda_n \right) \em of an integer \bm k \ge 0 \em satisfies
+\be
+  k = \lambda_1 + \lambda_2 + \dots + \lambda_n
+  \qquad \text{ \black and } \qquad
+  0 \le \lambda_1 \le \lambda_2 \le \dots \le \lambda_n
+\ee
+\red Goal \ \black Compute \
+% \bm \displaystyle \sum_{ \lambda } x_1^{ \lambda_1 } \cdots x_n^{ \lambda_n } \em \ or \
+\bm \displaystyle \sum_{ \lambda } q^{ \lambda_1 + \dots + \lambda_n } \em 
+% where the sums run through your favorite partitions.
+over your favorite partition family
+
+\red Example \black \ \bm P_{ \le 3 } \em --- family of partitions into at most \bm 3 \em parts
+\be
+  \sum_{ \lambda \in P_{ \le 3 } } q^{ \lambda_1 + \lambda_2 + \lambda_3 } \ = \ \frac{ 1
 }{ (1-q) (1-q^2) (1-q^3) } 
 \ee
 \red Idea \ 
-\bm P_3 \ = \ \left\{ \lambda \in \Z^3 : \, 0 \le \lambda_1 \le \lambda_2 \le
-\lambda_3 \right\} \ = \ \K_3 \cap \Z^3 \em 
+\bm P_{ \le 3 } \ = \ \left\{ \lambda \in \Z^3 : \, 0 \le \lambda_1 \le \lambda_2 \le
+\lambda_3 \right\} \ = \ \K \cap \Z^3 \em 
 
-\hspace{.56in}
-\bm \K_3 \ = \ \left\{ \x \in \R^3 : \, 0 \le x_1 \le x_2 \le x_3 \right\} \em
+\hspace{.83in}
+\bm \K \ = \ \left\{ \x \in \R^3 : \, 0 \le x_1 \le x_2 \le x_3 \right\} \em
 \ \green $\longleftarrow$ \ polyhedral cone $\heartsuit$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Warm-Up: Partition Generating Functions}
+
+\bm \K \ = \ \left\{ \x \in \R^3 : \, 0 \le x_1 \le x_2 \le x_3 \right\}
+  \ = \ \R_{ \ge 0 } \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} + 
+  \R_{ \ge 0 } \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} + 
+  \R_{ \ge 0 } \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} 
+\em
+
+is a rational, simplicial, unimodular cone
+
+\vspace{-.6in}
+\hspace{6in}
+\bm \det \begin{bmatrix} 0 & 0 & 1 \\ 0 & 1 & 1 \\ 1 & 1 & 1 \end{bmatrix} = -1 \em
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Warm-Up: Partition Generating Functions}
+
+\bm \K \ = \ \left\{ \x \in \R^3 : \, 0 \le x_1 \le x_2 \le x_3 \right\}
+  \ = \ \R_{ \ge 0 } \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} + 
+  \R_{ \ge 0 } \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} + 
+  \R_{ \ge 0 } \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} 
+\em
+
+is a rational, simplicial, unimodular cone
+
+\vspace{-.6in}
+\hspace{6in}
+\bm \det \begin{bmatrix} 0 & 0 & 1 \\ 0 & 1 & 1 \\ 1 & 1 & 1 \end{bmatrix} = -1 \em
+
+\vspace{-.3in}
+\red Integer-point transform
+\ba
+  \sigma_{ \K } (z_1, z_2, z_3)
+  &=& \sum_{ \m \in \K \cap \Z^3 } z_1^{ m_1 } z_2^{ m_2 } z_3^{ m_3 } \\
+  &=& \frac{ 1 }{ (1-z_3) (1-z_2 z_3) (1-z_1 z_2 z_3) } 
+\ea
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Warm-Up: Partition Generating Functions}
+
+\bm \K \ = \ \left\{ \x \in \R^3 : \, 0 \le x_1 \le x_2 \le x_3 \right\}
+  \ = \ \R_{ \ge 0 } \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} + 
+  \R_{ \ge 0 } \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} + 
+  \R_{ \ge 0 } \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} 
+\em
+
+is a rational, simplicial, unimodular cone
+
+\vspace{-.6in}
+\hspace{6in}
+\bm \det \begin{bmatrix} 0 & 0 & 1 \\ 0 & 1 & 1 \\ 1 & 1 & 1 \end{bmatrix} = -1 \em
+
+\vspace{-.3in}
+\red Integer-point transform
+\ba
+  \sigma_{ \K } (z_1, z_2, z_3)
+  &=& \sum_{ \m \in \K \cap \Z^3 } z_1^{ m_1 } z_2^{ m_2 } z_3^{ m_3 } \\
+  &=& \frac{ 1 }{ (1-z_3) (1-z_2 z_3) (1-z_1 z_2 z_3) } 
+\ea
+\be
+  \sum_{ \lambda \in P_{ \le 3 } } q^{ \lambda_1 + \lambda_2 + \lambda_3 }
+  \ = \ \sigma_{ \K } (q,q,q)
+  \ = \ \frac{ 1 }{ (1-q) (1-q^2) (1-q^3) } 
+\ee
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Variations on a Theme}
+
+\bm P_{ 3 } \em --- family of partitions into \red exactly \bm 3 \em parts
+ 
+\bm P_{ 3 } \ = \ \left\{ \lambda \in \Z^3 : \, 0 < \lambda_1 \le \lambda_2 \le
+\lambda_3 \right\} \ = \ \widetilde\K \cap \Z^3 \em 
+
+\hspace{.02in}
+\bm \widetilde\K \ = \ \left\{ \x \in \R^3 : \, 0 < x_1 \le x_2 \le x_3 \right\}
+  \ = \ \R_{ \ge 0 } \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} + 
+  \R_{ \ge 0 } \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} + 
+  \R_{ > 0 } \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}
+\em
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Variations on a Theme}
+
+\bm P_{ 3 } \em --- family of partitions into \red exactly \bm 3 \em parts
+ 
+\bm P_{ 3 } \ = \ \left\{ \lambda \in \Z^3 : \, 0 < \lambda_1 \le \lambda_2 \le
+\lambda_3 \right\} \ = \ \widetilde\K \cap \Z^3 \em 
+
+\hspace{.02in}
+\bm \widetilde\K \ = \ \left\{ \x \in \R^3 : \, 0 < x_1 \le x_2 \le x_3 \right\}
+  \ = \ \R_{ \ge 0 } \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} + 
+  \R_{ \ge 0 } \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} + 
+  \R_{ > 0 } \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}
+\em
+%
+\ba
+  \sigma_{ \widetilde\K } (z_1, z_2, z_3)
+  &=& \sum_{ \m \in \widetilde\K \cap \Z^3 } z_1^{ m_1 } z_2^{ m_2 } z_3^{ m_3 } \\
+  &=& \frac{ z_1 z_2 z_3 }{ (1-z_3) (1-z_2 z_3) (1-z_1 z_2 z_3) } 
+\ea
+\be
+  \sum_{ \lambda \in P_{ 3 } } q^{ \lambda_1 + \lambda_2 + \lambda_3 }
+  \ = \ \sigma_{ \widetilde\K } (q,q,q)
+  \ = \ \frac{ q^3 }{ (1-q) (1-q^2) (1-q^3) } 
+\ee
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Integer-point Complexity of a Simplicial Cone}
+
+What if \bm \K \em is (still simplicial and rational but) not unimodular?
+\\
+Say \bm \w_1, \w_2, \w_3 \in \Z^3 \em are linearly independent,
+\bm \det [\w_1 \, \w_2 \, \w_3] = D > 1 \em
+
+\bm \K = \R_{ \ge 0 } \, \w_1 + \R_{ \ge 0 } \, \w_2 + \R_{ \ge 0 } \, \w_3 \em
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Integer-point Complexity of a Simplicial Cone}
+
+What if \bm \K \em is (still simplicial and rational but) not unimodular?
+\\
+Say \bm \w_1, \w_2, \w_3 \in \Z^3 \em are linearly independent,
+\bm \det [\w_1 \, \w_2 \, \w_3] = D > 1 \em
+
+\bm \K = \R_{ \ge 0 } \, \w_1 + \R_{ \ge 0 } \, \w_2 + \R_{ \ge 0 } \, \w_3 \em
+
+\red Idea \black \ Tile \bm \K \em with the half-open parallelepiped
+\\
+\bm \Pi = [0,1) \, \w_1 + [0,1) \, \w_2 + [0,1) \, \w_3 \em
+
+\vspace{-1.9in}
+\hspace{5.8in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/3dim-tiling-domain}
+
+\vspace{-1.4in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/3dim-tiling}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Integer-point Complexity of a Simplicial Cone}
+
+What if \bm \K \em is (still simplicial and rational but) not unimodular?
+\\
+Say \bm \w_1, \w_2, \w_3 \in \Z^3 \em are linearly independent,
+\bm \det [\w_1 \, \w_2 \, \w_3] = D > 1 \em
+
+\bm \K = \R_{ \ge 0 } \, \w_1 + \R_{ \ge 0 } \, \w_2 + \R_{ \ge 0 } \, \w_3 \em
+
+\red Idea \black \ Tile \bm \K \em with the half-open parallelepiped
+\\
+\bm \Pi = [0,1) \, \w_1 + [0,1) \, \w_2 + [0,1) \, \w_3 \em
+
+\vspace{-1.9in}
+\hspace{5.8in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/3dim-tiling-domain}
+
+\vspace{-1.4in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/3dim-tiling}
+
+\vspace{-3.5in}
+\hspace{4.2in}
+\green $\downarrow$
+
+\hspace{3.7in}
+\bm \sigma_\K(z_1, z_2, z_3) = \em
+
+\vspace{-.2in}
+\hspace{3.7in}
+\bm \displaystyle \frac{ \sigma_\Pi(z_1, z_2, z_3) }{ (1 - \z^{ \w_1 }) (1 - \z^{
+\w_2 }) (1 - \z^{ \w_3 })  } \em
+
+\hspace{3.7in}
+where \bm \z^\m = z_1^{ m_1 } z_2^{ m_2 } z_3^{ m_3 } \em
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Integer-point Complexity of a Simplicial Cone}
+
+What if \bm \K \em is (still simplicial and rational but) not unimodular?
+\\
+Say \bm \w_1, \w_2, \w_3 \in \Z^3 \em are linearly independent,
+\bm \det [\w_1 \, \w_2 \, \w_3] = D > 1 \em
+
+\bm \K = \R_{ \ge 0 } \, \w_1 + \R_{ \ge 0 } \, \w_2 + \R_{ \ge 0 } \, \w_3 \em
+
+\red Idea \black \ Tile \bm \K \em with the half-open parallelepiped
+\\
+\bm \Pi = [0,1) \, \w_1 + [0,1) \, \w_2 + [0,1) \, \w_3 \em
+
+\vspace{-1.9in}
+\hspace{5.8in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/3dim-tiling-domain}
+
+\vspace{-1.4in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/3dim-tiling}
+
+\vspace{-3.5in}
+\hspace{4.2in}
+\green $\downarrow$
+
+\hspace{3.7in}
+\bm \sigma_\K(z_1, z_2, z_3) = \em
+
+\vspace{-.2in}
+\hspace{3.7in}
+\bm \displaystyle \frac{ \sigma_\Pi(z_1, z_2, z_3) }{ (1 - \z^{ \w_1 }) (1 - \z^{
+\w_2 }) (1 - \z^{ \w_3 })  } \em
+
+\vspace{.2in}
+\hspace{3.7in}
+\red Complexity \black\!\!: \bm \sigma_\Pi(z_1, z_2, z_3) \em has \bm D \em terms
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -806,6 +1056,7 @@ where the \red $h^*$-polynomial
 \vspace{-4.3in}
 \includegraphics[totalheight=2.5in]{../ehrhart}
 
+\thawpage
 \freezepage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
