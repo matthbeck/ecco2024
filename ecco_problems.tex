@@ -154,12 +154,38 @@ VIII Encuentro Colombiano De Combinatoria
 \begin{enumerate}[(1)]
 \vspace{-10pt}
 
-\item \open
-Choose $d+1$ of the $2^d$ vertices of the unit $d$-cube, and let $\Delta$ be the simplex defined by their convex hull.
+\item Compute the generating functions for
+\[
+  P_{ \le n } := \left\{ \lambda \in \ZZ^n : \, 0 \le \lambda_1 \le \lambda_2 \le
+\dots \le \lambda_n \right\} ,
+\]
+partitions into at most $n$ parts.
+Adjust your computations for partitions into exactly $n$ parts.
+
+\def\la{\lambda}
+
+\item Let $n \ge 3$ and
+\[
+  T_n := \left\{ (\la_1, \dots , \la_n) \in \ZZ^n : \, \la_n \ge \cdots \ge \la_1 \ge 1 \ \text{ \rm and } \ \la_1 + \cdots + \la_{n-1} > \la_n \right\} ,
+\]
+the set of all ``$n$-gon partitions.''
 \begin{enumerate}[(a)]
-\item Which choice of vertices maximizes $\vol \Delta$?
-\item What is the maximum volume of such a $\Delta$?
+\item Compute the generating function for $T_3$.
+\item What makes your computation more complicated for $n > 3$?
+\item Compute the generating function for
+\[
+  \widetilde T_n := \left\{ (\la_1, \dots , \la_n) \in \ZZ^n : \, \la_n \ge \cdots
+\ge \la_1 \ge 1 \ \text{ \rm and } \ \la_1 + \cdots + \la_{n-1} \le \la_n \right\} ,
+\]
+and conclude from it the generating function for $T_n$.
 \end{enumerate}
+
+\item Compute the integer-point transform of the cone
+$
+  \RR_{ \ge 0 } \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} + 
+  \RR_{ \ge 0 } \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} + 
+  \RR_{ \ge 0 } \begin{bmatrix} 2 \\ 1 \\ 1 \end{bmatrix} \, .
+$
 
 \item For any polynomial $h(z)$ of degree $d$, show there exist unique polynomials $a(z)$ and $b(z)$ such that
 \[
@@ -193,7 +219,8 @@ for your favorite integers $2 \le k \le d-2$.
 (This is the \emph{$(d, k)$-hypersimplex}.)
 Prove that the $h^*$-polynomial of $\cP$ is unimodal.
  
-\item Given a polytope $\cP \subseteq \RR^d$ with vertices $\bv_1, \bv_2, \dots, \bv_n$, randomly choose $h_1, h_2,
+\item This exercise constructs triangulations.
+Given a polytope $\cP \subseteq \RR^d$ with vertices $\bv_1, \bv_2, \dots, \bv_n$, randomly choose $h_1, h_2,
 \dots, h_n \in \RR$, and define the new polytope $\cQ \subseteq \RR^{ d+1 }$ as the convex hull of
 $(\bv_1, h_1), (\bv_2, h_2), \dots, (\bv_n, h_n)$.
 The \emph{lower hull} of $\cQ$ consists of all points that are \emph{visible from below}: all points $(x_1, x_2, \dots, x_{ d+1 }) \in \cQ$ for which there is no $\epsilon > 0$ such that $(x_1, x_2, \dots, x_{ d+1 } - \epsilon) \in \cQ$.
@@ -206,4 +233,12 @@ Show that all lower faces of $\cQ$ are simplices, and that their projections und
 \end{document}
 
 % ========================================================
+
+\item \open
+Choose $d+1$ of the $2^d$ vertices of the unit $d$-cube, and let $\Delta$ be the simplex defined by their convex hull.
+\begin{enumerate}[(a)]
+\item Which choice of vertices maximizes $\vol \Delta$?
+\item What is the maximum volume of such a $\Delta$?
+\end{enumerate}
+
 

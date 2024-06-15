@@ -65,10 +65,13 @@
 \def\Z{\mathbb{Z}}
 \def\Q{\mathbb{Q}}
 \def\R{\mathbb{R}}
+\def\F{\mathcal{F}}
+\def\G{\mathcal{G}}
 \def\P{\mathcal{P}}
 \def\K{\mathcal{K}}
 \def\cZ{\mathcal{Z}}
 \def\m{\mathbf{m}}
+\def\v{\mathbf{v}}
 \def\w{\mathbf{w}}
 \def\z{\mathbf{z}}
 \newcommand\cone{\operatorname{cone}} 
@@ -756,8 +759,7 @@ over your favorite partition family
 
 \red Example \black \ \bm P_{ \le 3 } \em --- family of partitions into at most \bm 3 \em parts
 \be
-  \sum_{ \lambda \in P_{ \le 3 } } q^{ \lambda_1 + \lambda_2 + \lambda_3 } \ = \ \frac{ 1
-}{ (1-q) (1-q^2) (1-q^3) } 
+  \sum_{ \lambda \in P_{ \le 3 } } q^{ \lambda_1 + \lambda_2 + \lambda_3 } \ = \ \frac{ 1 }{ (1-q) (1-q^2) (1-q^3) } 
 \ee
 
 \freezepage
@@ -783,8 +785,7 @@ over your favorite partition family
 }{ (1-q) (1-q^2) (1-q^3) } 
 \ee
 \red Idea \ 
-\bm P_{ \le 3 } \ = \ \left\{ \lambda \in \Z^3 : \, 0 \le \lambda_1 \le \lambda_2 \le
-\lambda_3 \right\} \ = \ \K \cap \Z^3 \em 
+\bm P_{ \le 3 } \ = \ \left\{ \lambda \in \Z^3 : \, 0 \le \lambda_1 \le \lambda_2 \le \lambda_3 \right\} \ = \ \K \cap \Z^3 \em 
 
 \hspace{.83in}
 \bm \K \ = \ \left\{ \x \in \R^3 : \, 0 \le x_1 \le x_2 \le x_3 \right\} \em
@@ -1018,6 +1019,123 @@ Say \bm \w_1, \w_2, \w_3 \in \Z^3 \em are linearly independent,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\foilhead[-20pt]{\green Homogenizing Polytopes}
+
+Given a polytope \bm \P \subset \R^d \em let
+
+\bm \cone(\P) \, := \, \R_{ \ge 0 } \left( \P \times \{ 1 \} \right) \subset \R^{
+d+1 } \em
+
+\vspace{-.2in}
+\bm = \, \R_{ \ge 0 } \begin{bmatrix} \v_1 \\ 1 \end{bmatrix} 
+  + \R_{ \ge 0 } \begin{bmatrix} \v_2 \\ 1 \end{bmatrix}
+  + \dots + \R_{ \ge 0 } \begin{bmatrix} \v_n \\ 1 \end{bmatrix} \em
+
+\vspace{-2.9in}
+\hspace{5.2in}
+\includegraphics[totalheight=4in]{../../David/titlepicturenolables-eps-converted-to}
+
+\vspace{-1.1in}
+\bm \cone(\P) \cap \{ \x \in \R^{ d+1 } : \, x_{ d+1 } = t \} \em
+% = t\P \times \{ t \} \em
+
+\vspace{-.2in}
+contains a copy of \bm t\P \em 
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Homogenizing Polytopes}
+
+Given a polytope \bm \P \subset \R^d \em let
+
+\bm \cone(\P) \, := \, \R_{ \ge 0 } \left( \P \times \{ 1 \} \right) \subset \R^{
+d+1 } \em
+
+\vspace{-.2in}
+\bm = \, \R_{ \ge 0 } \begin{bmatrix} \v_1 \\ 1 \end{bmatrix} 
+  + \R_{ \ge 0 } \begin{bmatrix} \v_2 \\ 1 \end{bmatrix}
+  + \dots + \R_{ \ge 0 } \begin{bmatrix} \v_n \\ 1 \end{bmatrix} \em
+
+\vspace{-2.9in}
+\hspace{5.2in}
+\includegraphics[totalheight=4in]{../../David/titlepicturenolables-eps-converted-to}
+
+\vspace{-1.1in}
+\bm \cone(\P) \cap \{ \x \in \R^{ d+1 } : \, x_{ d+1 } = t \} \em
+% = t\P \times \{ t \} \em
+
+\vspace{-.2in}
+contains a copy of \bm t\P \em \ \green $\longrightarrow$
+
+\vspace{-.4in}
+\be \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t 
+\, = \, \sigma_{ \cone(\P) } (1, 1, \dots, 1, z) \ee
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Homogenizing Polytopes}
+
+Given a polytope \bm \P \subset \R^d \em let
+
+\bm \cone(\P) \, := \, \R_{ \ge 0 } \left( \P \times \{ 1 \} \right) \subset \R^{
+d+1 } \em
+
+\vspace{-.2in}
+\bm = \, \R_{ \ge 0 } \begin{bmatrix} \v_1 \\ 1 \end{bmatrix} 
+  + \R_{ \ge 0 } \begin{bmatrix} \v_2 \\ 1 \end{bmatrix}
+  + \dots + \R_{ \ge 0 } \begin{bmatrix} \v_n \\ 1 \end{bmatrix} \em
+
+\vspace{-2.9in}
+\hspace{5.2in}
+\includegraphics[totalheight=4in]{../../David/titlepicturenolables-eps-converted-to}
+
+\vspace{-1.1in}
+\bm \cone(\P) \cap \{ \x \in \R^{ d+1 } : \, x_{ d+1 } = t \} \em
+% = t\P \times \{ t \} \em
+
+\vspace{-.2in}
+contains a copy of \bm t\P \em \ \green $\longrightarrow$
+
+\vspace{-.4in}
+\be \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t 
+\, = \, \sigma_{ \cone(\P) } (1, 1, \dots, 1, z) \ee
+
+\vspace{-.5in}
+If \bm \P \em is a simplex,
+
+\vspace{-.3in}
+\hspace{.6in}
+\bm \displaystyle \sigma_{ \cone(\P) } (\z) \, = \, \frac{ \sigma_\Pi(\z) }{ \displaystyle \prod_{
+\v \text{ vertex } } (1 - \z^\v ) } \em
+\ \ \ \green $\longrightarrow$ \ \ \ 
+\bm \displaystyle  \Ehr_\P (z) \, = \, \frac{ h^*_\P(z) }{ (1-z)^{ d+1 } } \em
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Trials \& Triangulations}
+
+\red Subdivision \black of a polyhedron \bm \P \em --- finite collection \bm S
+\em of polyhedra such that
+
+\vspace{-.2in}
+\begin{enumerate}[\mybullet]
+\item if \bm \F \em is a face of \bm \G \in S \em then \bm \F \in S \em
+\item if \bm \F, \G \in S \em then \bm \F \cap \G \em is a face of both
+\item \bm \P = \bigcup_{ \F \in S } \F \em
+\end{enumerate}
+
+\vspace{-.9in}
+\hspace{2.8in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/subdivisions}
+
+If each \bm \F \em is a simplex
+\ \green $\longrightarrow$ \ \red triangulation \black of a polytope
+
+\thawpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \foilhead[-20pt]{\green Ehrhart Polynomials}
 
 \hspace{1.8in}
@@ -1056,7 +1174,6 @@ where the \red $h^*$-polynomial
 \vspace{-4.3in}
 \includegraphics[totalheight=2.5in]{../ehrhart}
 
-\thawpage
 \freezepage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
