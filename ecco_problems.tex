@@ -21,6 +21,7 @@
 \def\QQ{\mathbb{Q}}
 \def\RR{\mathbb{R}}
 \def\ZZ{\mathbb{Z}}
+\newcommand\cone{\operatorname{cone}} 
 \newcommand\vol{\operatorname{vol}} 
 
 \def\open{$[${\tt research problem}$]$ }
@@ -144,6 +145,8 @@ where $\be_1, \be_2, \dots, \be_d$ are the standard unit vectors.
 
 {\sc Matthias Beck} \hfill {\tt https://matthbeck.github.io/}
 
+% ========================================================
+
 \newpage
 \begin{center}
 \Large{\bf Ehrhart Polynomials} 
@@ -190,7 +193,29 @@ $
   \RR_{ \ge 0 } \begin{bmatrix} 2 \\ 1 \\ 1 \end{bmatrix} \, .
 $
 
-\item For any polynomial $h(z)$ of degree $d$, show there exist unique polynomials $a(z)$ and $b(z)$ such that
+\item Give an explicit bijection between the faces (including $\varnothing$) of a
+given polytope $\cP$ and the faces (excluding $\varnothing$) of its homogenization
+$\cone(\cP)$.
+
+\item Pick five points in $\ZZ^3$ and let $\cP$ be their convex hull (in $\RR^3$). Compute the Ehrhart polynomial of~$\cP$.
+
+\item Give an example of a polynomial $f(n)$ with (some) negative coefficients whose corresponding generating function
+numerator polynomial $h(z)$ has only positive coefficients.
+
+\item For a lattice polytope $\cP$, the numerator of the generating function is the \emph{$h^*$-polynomial} of $\cP$.
+Give a non-unimodal\footnote{
+A polynomial is \emph{unimodal} if its coefficients increase up to some point and
+then decrease.
+} example of an $h^*$-polynomial.
+
+\item \open
+Now let
+$\cP = \left\{ \bx \in [0,1]^d : \, x_1 + x_2 + \dots + x_d = k \right\}$,
+for your favorite integers $2 \le k \le d-2$. 
+(This is the \emph{$(d, k)$-hypersimplex}.)
+Prove that the $h^*$-polynomial of $\cP$ is unimodal.
+
+ \item For any polynomial $h(z)$ of degree $d$, show there exist unique polynomials $a(z)$ and $b(z)$ such that
 \[
   h(z) = a(z) + z \, b(z)
   \qquad \text{ where } \qquad a(z) = z^d \, a(\tfrac 1 z) \qquad \text{ and } \qquad b(z) = z^{ d-1 } \, b(\tfrac 1 z) \, .
@@ -209,19 +234,7 @@ half-integral point in the figure below corresponds to an Ehrhart polynomial.
 
 \item \open Give the corresponding classification picture of degree-3 Ehrhart polynomials. 
  
-\item Give an example of a polynomial $f(n)$ with (some) negative coefficients whose corresponding generating function
-numerator polynomial $h(z)$ has only positive coefficients.
 
-\item For a lattice polytope $\cP$, the numerator of the generating function is the \emph{$h^*$-polynomial} of $\cP$.
-Give a non-unimodal example of an $h^*$-polynomial.
-
-\item \open
-Now let
-$\cP = \left\{ \bx \in [0,1]^d : \, x_1 + x_2 + \dots + x_d = k \right\}$,
-for your favorite integers $2 \le k \le d-2$. 
-(This is the \emph{$(d, k)$-hypersimplex}.)
-Prove that the $h^*$-polynomial of $\cP$ is unimodal.
- 
 \item This exercise constructs triangulations.
 Given a polytope $\cP \subseteq \RR^d$ with vertices $\bv_1, \bv_2, \dots, \bv_n$, randomly choose $h_1, h_2,
 \dots, h_n \in \RR$, and define the new polytope $\cQ \subseteq \RR^{ d+1 }$ as the convex hull of
@@ -232,6 +245,13 @@ Let $\pi : \RR^{ d+1 } \to \RR^d$ be the projection that forgets the last coordi
 Show that all lower faces of $\cQ$ are simplices, and that their projections under $\pi$ form a triangulation of~$\cP$.
 
 \end{enumerate}
+
+% ========================================================
+
+{\sc Matthias Beck} \hfill {\tt https://matthbeck.github.io/}
+
+% ========================================================
+
 
 \end{document}
 
