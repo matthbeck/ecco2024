@@ -15,6 +15,7 @@
 \def\be{\mathbf{e}}
 \def\bv{\mathbf{v}}
 \def\bx{\mathbf{x}}
+\def\0{\mathbf{0}}
 \def\cB{\mathcal{B}}
 \def\cP{\mathcal{P}}
 \def\cQ{\mathcal{Q}}
@@ -215,15 +216,14 @@ for your favorite integers $2 \le k \le d-2$.
 (This is the \emph{$(d, k)$-hypersimplex}.)
 Prove that the $h^*$-polynomial of $\cP$ is unimodal.
 
- \item For any polynomial $h(z)$ of degree $d$, show there exist unique polynomials $a(z)$ and $b(z)$ such that
+\item Suppose $\cP \subset \RR^m$ and $\cQ \subset \RR^n$ are lattice polytopes.
+Prove that the \emph{convolution} of their Ehrhart polynomials,
 \[
-  h(z) = a(z) + z \, b(z)
-  \qquad \text{ where } \qquad a(z) = z^d \, a(\tfrac 1 z) \qquad \text{ and } \qquad b(z) = z^{ d-1 } \, b(\tfrac 1 z) \, .
+  L(t) := \sum_{ s=0 }^t L_\cP(s) \, L_\cQ(t-s)
 \]
-(There are many variations of this; e.g., we could leave out the $z$ factor in front of $b(z)$.)
-
-\item Derive inequalities for the coefficients of $h(z)$ if we know that both $a(z)$ and $b(z)$ have only nonnegative
-coefficients.
+equals the Ehrhart quasipolynomial of the polytope given by the convex hull of $\cP
+\times \left\{ \0_n \right\} \times \left\{ 0 \right\}$ and $\left\{ \0_m \right\}
+\times \cQ \times \left\{ 1 \right\} $. Here $\0_d$ denotes the origin in $\RR^d$.
 
 \item Verify (parts of) the classification picture of degree-2 Ehrhart polynomials $c_2 t^2 + c_1 t + 1$: every
 half-integral point in the figure below corresponds to an Ehrhart polynomial.
@@ -252,6 +252,30 @@ Show that all lower faces of $\cQ$ are simplices, and that their projections und
 
 % ========================================================
 
+\newpage
+\begin{center}
+\Large{\bf Ehrhart Polynomials} 
+
+\normalsize
+VIII Encuentro Colombiano De Combinatoria
+\end{center}
+
+\paragraph{Day III: Ehrhart Structures}
+
+\begin{enumerate}[(1)]
+\vspace{-10pt}
+\item For any polynomial $h(z)$ of degree $d$, show there exist unique polynomials $a(z)$ and $b(z)$ such that
+\[
+  h(z) = a(z) + z \, b(z)
+  \qquad \text{ where } \qquad a(z) = z^d \, a(\tfrac 1 z) \qquad \text{ and } \qquad b(z) = z^{ d-1 } \, b(\tfrac 1 z) \, .
+\]
+(There are many variations of this; e.g., we could leave out the $z$ factor in front of $b(z)$.)
+
+\item Derive inequalities for the coefficients of $h(z)$ if we know that both $a(z)$ and $b(z)$ have only nonnegative
+coefficients.
+
+
+\end{enumerate}
 
 \end{document}
 
