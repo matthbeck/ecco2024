@@ -1,5 +1,9 @@
 \documentclass[landscape]{foils}
 \usepackage{graphicx,color,amsmath,amssymb,latexsym,enumerate,rotate}
+\usepackage{tikz}
+\usepackage{changepage}
+\usetikzlibrary{arrows,positioning, calc}
+\tikzstyle{vertex}=[draw,fill=black!8,circle,minimum size=6pt,inner sep=0pt]
 
 \topmargin-2cm
 \leftmargin-1cm
@@ -62,12 +66,14 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1cm}
 
+\def\hopen{\mathbb{H}}
 \def\Z{\mathbb{Z}}
 \def\Q{\mathbb{Q}}
 \def\R{\mathbb{R}}
 \def\F{\mathcal{F}}
 \def\G{\mathcal{G}}
 \def\P{\mathcal{P}}
+\def\cQ{\mathcal{Q}}
 \def\K{\mathcal{K}}
 \def\cZ{\mathcal{Z}}
 \def\m{\mathbf{m}}
@@ -81,6 +87,8 @@
 \newcommand\Ehr{\operatorname{Ehr}} 
 \newcommand\fl[1]{\left\lfloor {#1} \right\rfloor} 
 \newcommand\fr[1]{\left\{ {#1} \right\}} 
+
+\def\headercolor{\green}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -761,21 +769,9 @@ De Combinatoria
 
 \foilhead{\green Any questions about yesterday?}
 
-\vspace{-.1in}
-\hspace{4.3in}
-\includegraphics[totalheight=2in]{../../David/preface_disc-eps-converted-to}
-\hspace{-.1in}
-\includegraphics[totalheight=2in]{../../David/preface_cont-eps-converted-to}
-
-\vspace{-2.9in}
-\includegraphics[totalheight=3.3in]{../../David/octahedron-eps-converted-to}
-
 \vspace{-.5in}
-\includegraphics[totalheight=3in]{../../David/zonotopepaving-eps-converted-to}
-
-\vspace{-3.3in}
-\hspace{6in}
-\includegraphics[totalheight=3in]{../../David/trunccube_arrows-eps-converted-to}
+\hspace{.5in}
+\includegraphics[totalheight=5.9in]{../../../coeffzeros.contmath05/plot_3d_4pts_range_1_10}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1447,7 +1443,7 @@ where the \red $h^*$-polynomial
 \vspace{1.5in}
 \bm \P \em --- half-open \bm d \em\!\!-parallelepiped
 
-\green $\longrightarrow$ \ \bm L_\P(t) \, = \, t^d \em
+\green $\longrightarrow$ \ \bm L_\P(t) \, = \, \vol(\P) \, t^d \em
 
 \vspace{-2.3in}
 \hspace{4.9in}
@@ -1586,6 +1582,589 @@ Classify Ehrhart polynomials.
 \hspace{5.4in}
 \green $\longrightarrow$ \ \bm L_\P(t) = c_2 \, t^2 + c_1 \, t + 1 \em
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Ehrhart Quasipolynomials}
+
+\red Rational polytope \bm \P \subset \R^d \em -- convex hull of finitely points in \bm \Q^d \em
+
+\red Theorem \black (Ehrhart 1962)
+% For any rational polytope \bm \P \em\!\!,
+\bm L_\P (t) \em is a \red quasi\-polynomial \black in \bm t \em\!\!: 
+\be
+  L_\P (t) \, = \, c_d(t) \, t^d + c_{d-1}(t) \, t^{d-1} + \dots + c_0(t)
+\ee
+where \bm c_0(t), \dots, c_d(t) \em are periodic functions.
+
+% On board: 
+
+% \red Example \ \bm \displaystyle L_{ [0, \frac 1 2] } (t) \, = \, \frac 1 2 \, t + \frac{ 3 + (-1)^{ t } }{ 4 } \em
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Ehrhart Quasipolynomials}
+
+\red Rational polytope \bm \P \subset \R^d \em -- convex hull of finitely points in \bm \Q^d \em
+
+\red Theorem \black (Ehrhart 1962)
+% For any rational polytope \bm \P \em\!\!,
+\bm L_\P (t) \em is a \red quasi\-polynomial \black in \bm t \em\!\!: 
+\be
+  L_\P (t) \, = \, c_d(t) \, t^d + c_{d-1}(t) \, t^{d-1} + \dots + c_0(t)
+\ee
+where \bm c_0(t), \dots, c_d(t) \em are periodic functions.
+Equivalently,
+\be \displaystyle 
+  \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \, = \, \dfrac{ h(z) }{ (1-z^p)^{ \dim \P + 1 } }
+\ee
+for some (minimal) \bm p \in \Z_{ >0 } \em (the \red period \black of \bm L_\P (t) \em\!\!).
+
+% On board: 
+
+% \red Example \ \bm \displaystyle \Ehr_{ [0, \frac 1 2] } (z) \, = \, \sum_{ t \ge 0 } \left( \frac 1 2 \, t + \frac{ 3 + (-1)^{ t } }{ 4 } \right) z^t \, = \, \frac{ 1+z }{ (1-z^2)^2 } \em
+
+\red Open Problem \black \
+Study periods of Ehrhart quasipolynomials.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Partitions Revisited}
+
+\red Definition \ \bm n \em\!\!-gon partitions
+\be
+  T_n := \left\{ (\lambda_1, \dots , \lambda_n) \in \Z^n : \, \lambda_n \ge \cdots \ge \lambda_1 \ge 1 \ \text{ \rm and } \ \lambda_1 + \cdots + \lambda_{n-1} > \lambda_n \right\} 
+\ee
+%
+\red Theorem \black (Andrews--Paule--Riese 2001)
+\ba
+  &\mbox{}& \sum_{ \lambda \in T_n } q^{ \lambda_1 + \dots + \lambda_n } = \frac{ q }{ (1-q) (1-q^2) \cdots (1-q^n) } \\
+  &\mbox{}& \qquad \qquad \qquad \qquad - \ \frac{ q^{ 2n-2 } }{ (1-q) (1-q^2) (1-q^4) \cdots (1-q^{ 2n-2 } ) }
+\ea
+
+\red Geometric Philosophy \black \ The following cone is arithmetically nicer:
+\be
+  \left\{ \x \in \R^n : \, x_n \ge \cdots \ge x_1 > 0 \ \text{ \rm and } \ x_1 +
+\cdots + x_{n-1} \le x_n \right\} 
+\ee
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Partitions Revisited}
+
+\red Definition \ \black Lecture-hall partitions
+%\vspace{-.5in}
+\be
+\LH_n \ := \ \left \{\lambda\in\Z^n:\, 0 \leq \frac{\lambda_{1}}{{1}}\leq \frac{\lambda_{2}}{{2}} \leq \cdots\leq \frac{\lambda_{n}}{{n}}\right \}
+\ee
+
+\red Lecture-Hall Theorem \black (Bousquet-M\'elou--Eriksson 1997)
+\be \displaystyle \sum_{ \lambda \in \LH_n } q^{ \lambda_1 + \dots + \lambda_n } \ =
+\ \frac{ 1 }{ (1-q) (1-q^3) \cdots (1-q^{ 2n-1 }) }  \ee
+
+\red Open Problem \black \ Explain this geometrically.
+(Caveat: the lecture-hall cone has determinant \bm n! \em\!\!).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Recap Day II}
+
+\vspace{-.2in}
+\begin{enumerate}[\mybullet]
+\item Generating functions son chevere
+\item Integer-point transforms of rational polyhedra \ \bm \longrightarrow \em \
+rational functions
+\item Arithmetic complexity of a simplicial cone: determinant of its generators
+\item Homogenize polytopes
+\item Triangulations
+\item Polynomial data
+\item Thursday: postitivity, \\ reciprocity \& friends
+\end{enumerate}
+
+\vspace{-3.3in}
+\hspace{4.9in}
+\includegraphics[totalheight=2.9in]{../meowthematics.jpg}
+
+\vspace{-1.6in}
+\hspace{8.7in}
+\tiny
+\rotatebox{90}{\copyright Jupiter Davis}
+
+\normalsize
+
+\thawpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\thispagestyle{empty}
+\
+
+\begin{center}
+  {\green\LARGE \textbf{Ehrhart Polynomials} \\[12pt]
+\normalsize
+Day III: Positivity, Reciprocity \& Friends}
+\end{center}
+
+\vspace{-.2in}
+%\hspace{5.3in}
+\includegraphics[totalheight=5in]{../../David/sublattice3-eps-converted-to}
+
+\vspace{-4.5in} 
+\blue
+\hspace{5in}
+Matthias Beck
+\\[5pt]
+\black
+\hspace{5in}
+San Francisco State University
+\\[5pt]
+\blue
+\hspace{5in}
+https://matthbeck.github.io/
+\black
+
+\vspace{1in} 
+\hspace{5in}
+VIII Encuentro Colombiano 
+
+\vspace{-.4in} 
+\hspace{5in}
+De Combinatoria
+
+\black
+
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Any questions about yesterday?}
+
+\hspace{.3in}
+\bm \displaystyle
+  \sum_{ \lambda \in P_{ 3 } } q^{ \lambda_1 + \lambda_2 + \lambda_3 }
+  \ = \ \sigma_{ \widetilde\K } (q,q,q)
+\em
+
+\vspace{-.3in}
+\hspace{.6in}
+\bm \displaystyle
+    = \ \frac{ q^3 }{ (1-q) (1-q^2) (1-q^3) } 
+\em
+
+\vspace{.7in}
+%\hspace{5.8in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/3dim-tiling}
+
+\vspace{-6.9in}
+\hspace{4.9in}
+\includegraphics[totalheight=4in]{../../David/titlepicturenolables-eps-converted-to}
+
+\vspace{-.2in}
+\hspace{4.5in}
+\includegraphics[totalheight=2.5in]{../../../CRT-Book/David/subdivisions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Today's Menu: Positivity, Reciprocity \& Friends}
+
+\vspace{-.2in}
+\begin{enumerate}[\mybullet]
+\item Graph coloring 
+\vspace{-.1in}
+\item Half-open triangulations
+\vspace{-.1in}
+\item Ehrhart positivity
+\vspace{-.1in}
+\item Ehrhart--Macdonald reciprocity
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\headercolor Warm-Up: Chromatic Polynomials of Graphs}
+
+\bm \Gamma = (V,E) \em --- graph (without loops)
+
+\red Proper \bm k \em\!\!\red-coloring \black of \bm \Gamma \em --- \bm \x \in \{ 1, 2, \dots, k \}^V \em such that \bm x_i \not= x_j \em if \bm ij \in E \em
+
+\bm \chi_\Gamma (k) := \# \left( \text{proper $k$-colorings of } \Gamma \right) \em
+
+Example:
+
+\vspace{-.8in}
+\hspace{1.8in}
+\begin{picture}(170,100)
+\put(0,0){\line(1,0){100}} 
+\put(0,0){\line(2,3){50}} 
+\put(100,0){\line(-2,3){50}}
+\put(-5,-5){\red $\bullet$}
+\put(45,70){\green $\bullet$}
+\put(95,-5){\orange $\bullet$}
+\end{picture} 
+
+\vspace{-1.5in}
+\hspace{4in}
+\bm \chi_{ K_3 } (k) = \red k \green (k-1) \orange (k-2) \em
+
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\headercolor Warm-Up: Chromatic Polynomials of Graphs}
+
+\bm \Gamma = (V,E) \em --- graph (without loops)
+
+\red Proper \bm k \em\!\!\red-coloring \black of \bm \Gamma \em --- \bm \x \in \{ 1, 2, \dots, k \}^V \em such that \bm x_i \not= x_j \em if \bm ij \in E \em
+
+\bm \chi_\Gamma (k) := \# \left( \text{proper $k$-colorings of } \Gamma \right) \em
+\qquad \green $\longleftarrow$ \ \black polynomial \ \red $\heartsuit$ \black
+
+Example:
+
+\vspace{-.8in}
+\hspace{1.8in}
+\begin{picture}(170,100)
+\put(0,0){\line(1,0){100}} 
+\put(0,0){\line(2,3){50}} 
+\put(100,0){\line(-2,3){50}}
+\put(-5,-5){\red $\bullet$}
+\put(45,70){\green $\bullet$}
+\put(95,-5){\orange $\bullet$}
+\end{picture} 
+
+\vspace{-1.5in}
+\hspace{4in}
+\bm \chi_{ K_3 } (k) = \red k \green (k-1) \orange (k-2) \em
+
+\vspace{.85in}
+\bm \left| \chi_{ K_3 } (-1) \right| = 6 \em  \dots
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\headercolor Warm-Up: Chromatic Polynomials of Graphs}
+
+\bm \Gamma = (V,E) \em --- graph (without loops)
+
+\red Proper \bm k \em\!\!\red-coloring \black of \bm \Gamma \em --- \bm \x \in \{ 1, 2, \dots, k \}^V \em such that \bm x_i \not= x_j \em if \bm ij \in E \em
+
+\bm \chi_\Gamma (k) := \# \left( \text{proper $k$-colorings of } \Gamma \right) \em
+\qquad \green $\longleftarrow$ \ \black polynomial \ \red $\heartsuit$ \black
+
+Example:
+
+\vspace{-.8in}
+\hspace{1.8in}
+\begin{picture}(170,100)
+\put(0,0){\line(1,0){100}} 
+\put(0,0){\line(2,3){50}} 
+\put(100,0){\line(-2,3){50}}
+\put(-5,-5){\red $\bullet$}
+\put(45,70){\green $\bullet$}
+\put(95,-5){\orange $\bullet$}
+\end{picture} 
+
+\vspace{-1.5in}
+\hspace{4in}
+\bm \chi_{ K_3 } (k) = \red k \green (k-1) \orange (k-2) \em
+
+\vspace{.85in}
+\bm \left| \chi_{ K_3 } (-1) \right| = 6 \em counts the number
+
+\vspace{-.35in}
+of \red acyclic orientations \black of \bm K_3 \em
+
+\vspace{-1.5in}
+\hspace{5in}
+\includegraphics[totalheight=1.5in]{../../../crt.dmv12/introacylic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\headercolor Warm-Up: Chromatic Polynomials of Graphs}
+
+\bm \Gamma = (V,E) \em --- graph (without loops)
+
+\red Proper \bm k \em\!\!\red-coloring \black of \bm \Gamma \em --- \bm \x \in \{ 1, 2, \dots, k \}^V \em such that \bm x_i \not= x_j \em if \bm ij \in E \em
+
+\bm \chi_\Gamma (k) := \# \left( \text{proper $k$-colorings of } \Gamma \right) \em
+\qquad \green $\longleftarrow$ \ \black polynomial \ \red $\heartsuit$ \black
+
+\vspace{.2in}
+\red Theorem \black (Stanley 1973)
+\bm (-1)^{|V|} \chi_\Gamma(-k) \em equals 
+the number of pairs \bm (\alpha,\x) \em consisting of an acyclic 
+orientation \bm \alpha \em of \bm \Gamma \em and a compatible \bm k \em\!\!-coloring \bm \x \em\!\!. 
+In particular, \bm (-1)^{|V|} \chi_\Gamma(-1) \em equals the number 
+of acyclic orientations of \bm \Gamma \em\
+
+(An orientation \bm \alpha \em of \bm \Gamma \em and a \bm k \em\!\!-coloring \bm x \em are \red compatible \black if \bm x_j \geq x_i \em whenever there is an edge oriented from \bm i \em to \bm j \em\!\!.  An orientation is \red acyclic \black if it has no directed cycles.)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Half-open Triangulations}
+
+\red Triangulation \black of a polytope \bm \P \em --- finite collection \bm S
+\em of simplices such that
+
+\vspace{-.2in}
+\begin{enumerate}[\mybullet]
+\item if \bm \F \em is a face of \bm \G \in S \em then \bm \F \in S \em
+\item if \bm \F, \G \in S \em then \bm \F \cap \G \em is a face of both
+\item \bm \P = \bigcup_{ \F \in S } \F \em
+\end{enumerate}
+
+\vspace{-.7in}
+\hspace{2.7in}
+\begin{tikzpicture}[scale=2.2]
+                \node[fill=black, draw=black, shape=circle, scale=0.3] (a) at (4,3) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](ab) at (4,1) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](b) at (4,0) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](c) at (7,3) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](d) at (7,0) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](x) at (6,2) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3,
+label={right:\bm \q \em}](q) at (5.4, 0.4) {} ;
+                \draw (a) -- (b) ;
+                \draw (c) -- (d) ;
+                \draw (a) -- (c) ;
+                \draw (b) -- (d) ;
+                \draw (a) -- (x) ;
+                \draw (b) -- (x) ;
+                \draw (c) -- (x) ;
+                \draw (d) -- (x) ;
+                \draw (ab) -- (x) ;
+
+                
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3] (a-closed) at (8,3) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3] (a-open) at (8.2,3) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](ab-open) at (8,1.2) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](ab-closed) at (8,1) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](b-closed) at (8,0) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](b-open) at (8,0.2) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](c-open) at (11,3) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](c-closed) at (11,2.8) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](d-open) at (11,0.2) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](d-closed) at (11,0) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](x-b-d) at (10,1.9) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](x-b-ab) at (9.85,1.95) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](x-ab-a) at (9.85,2.1) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](x-a-c) at (10,2.2) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](x-c-d) at (10.1,2.05) {} ;
+                \draw[thick,blue] (b-open) -- (ab-closed) ;
+                \draw[thick,blue] (ab-open) -- (a-closed) ;
+                \draw[thick, blue] (a-open) -- (c-open) ;
+                \draw[thick, blue] (c-closed) -- (d-open) ;
+                \draw[thick, blue] (d-closed) -- (b-closed) ;
+                \draw[thick, blue] (b-closed) -- (x-b-d) ;
+                \draw[thick, blue] (d-closed) -- (x-b-d) ;
+                \draw[thick, orange, dashed] (d-open) -- (x-c-d) ;
+                \draw[thick, blue] (c-closed) -- (x-c-d) ;
+                \draw[thick, orange, dashed] (c-open) -- (x-a-c) ;
+                \draw[thick, orange, dashed] (a-open) -- (x-a-c) ;
+                \draw[thick, blue] (a-closed) -- (x-ab-a) ;
+                \draw[thick, orange, dashed] (ab-open) -- (x-ab-a) ;
+                \draw[thick, blue] (ab-closed) -- (x-b-ab) ;
+                \draw[thick, orange, dashed] (b-open) -- (x-b-ab) ;
+
+\end{tikzpicture}
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Tangent Cones \& Visibility}
+
+\bm \F \em facet of a polyhedron \bm \P \subset \R^d \em with defining halfspace \bm H \em
+
+\bm \F \em is \red visible \black from \bm \q \in \R^d \em if \bm \q \notin H \em
+
+%\vspace{-.1in}
+\hspace{.8in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/beneath-beyond-cone}
+
+Equivalent lingo: \bm \q \in \R^d \em is \red beyond \bm \F \em (and \red beneath
+\black otherwise)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Half-open Triangulations}
+
+Define \bm \hopen_\q (\cQ) \em to be \bm \cQ \em minus facets that are visible from \bm \q \em
+
+\red Exercise
+\bm \P \subset \R^d \em --- full-dimensional polyhedron with dissection \bm \P = \P_1
+\cup \P_2 \cup \cdots \cup \P_m \em\!\!, 
+\bm \q \in \R^d \em generic relative to each \bm \P_j \em
+\green \quad $\longrightarrow$
+\be
+  \hopen_\q \P \ = \ \hopen_\q \P_1 \uplus \hopen_\q \P_2 \uplus \cdots \uplus \hopen_\q \P_m
+\ee
+
+\vspace{-.3in}
+\hspace{1.3in}
+\begin{tikzpicture}[scale=2.2]
+                \node[fill=black, draw=black, shape=circle, scale=0.3] (a) at (4,3) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](ab) at (4,1) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](b) at (4,0) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](c) at (7,3) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](d) at (7,0) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](x) at (6,2) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3,
+label={right:\bm \q \em}](q) at (5.4, 0.4) {} ;
+                \draw (a) -- (b) ;
+                \draw (c) -- (d) ;
+                \draw (a) -- (c) ;
+                \draw (b) -- (d) ;
+                \draw (a) -- (x) ;
+                \draw (b) -- (x) ;
+                \draw (c) -- (x) ;
+                \draw (d) -- (x) ;
+                \draw (ab) -- (x) ;
+
+                
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3] (a-closed) at (8,3) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3] (a-open) at (8.2,3) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](ab-open) at (8,1.2) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](ab-closed) at (8,1) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](b-closed) at (8,0) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](b-open) at (8,0.2) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](c-open) at (11,3) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](c-closed) at (11,2.8) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](d-open) at (11,0.2) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](d-closed) at (11,0) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](x-b-d) at (10,1.9) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](x-b-ab) at (9.85,1.95) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](x-ab-a) at (9.85,2.1) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](x-a-c) at (10,2.2) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](x-c-d) at (10.1,2.05) {} ;
+                \draw[thick,blue] (b-open) -- (ab-closed) ;
+                \draw[thick,blue] (ab-open) -- (a-closed) ;
+                \draw[thick, blue] (a-open) -- (c-open) ;
+                \draw[thick, blue] (c-closed) -- (d-open) ;
+                \draw[thick, blue] (d-closed) -- (b-closed) ;
+                \draw[thick, blue] (b-closed) -- (x-b-d) ;
+                \draw[thick, blue] (d-closed) -- (x-b-d) ;
+                \draw[thick, orange, dashed] (d-open) -- (x-c-d) ;
+                \draw[thick, blue] (c-closed) -- (x-c-d) ;
+                \draw[thick, orange, dashed] (c-open) -- (x-a-c) ;
+                \draw[thick, orange, dashed] (a-open) -- (x-a-c) ;
+                \draw[thick, blue] (a-closed) -- (x-ab-a) ;
+                \draw[thick, orange, dashed] (ab-open) -- (x-ab-a) ;
+                \draw[thick, blue] (ab-closed) -- (x-b-ab) ;
+                \draw[thick, orange, dashed] (b-open) -- (x-b-ab) ;
+
+\end{tikzpicture}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Recall: Integer-point Complexity of a Simplicial Cone}
+
+What if \bm \K \em is (still simplicial and rational but) not unimodular?
+\\
+Say \bm \w_1, \w_2, \w_3 \in \Z^3 \em are linearly independent,
+\bm \det [\w_1 \, \w_2 \, \w_3] = D > 1 \em
+
+\bm \K = \R_{ \ge 0 } \, \w_1 + \R_{ \ge 0 } \, \w_2 + \R_{ \ge 0 } \, \w_3 \em
+
+\red Idea \black \ Tile \bm \K \em with the half-open parallelepiped
+\\
+\bm \Pi = [0,1) \, \w_1 + [0,1) \, \w_2 + [0,1) \, \w_3 \em
+
+\vspace{-1.9in}
+\hspace{5.8in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/3dim-tiling-domain}
+
+\vspace{-1.4in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/3dim-tiling}
+
+\vspace{-3.5in}
+\hspace{4.2in}
+\green $\downarrow$
+
+\hspace{3.7in}
+\bm \sigma_\K(z_1, z_2, z_3) = \em
+
+\vspace{-.2in}
+\hspace{3.7in}
+\bm \displaystyle \frac{ \sigma_\Pi(z_1, z_2, z_3) }{ (1 - \z^{ \w_1 }) (1 - \z^{
+\w_2 }) (1 - \z^{ \w_3 })  } \em
+
+\hspace{3.7in}
+where \bm \z^\m = z_1^{ m_1 } z_2^{ m_2 } z_3^{ m_3 } \em
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Recall: Homogenizing Polytopes}
+
+Given a polytope \bm \P \subset \R^d \em let
+
+\bm \cone(\P) \, := \, \R_{ \ge 0 } \left( \P \times \{ 1 \} \right) \subset \R^{
+d+1 } \em
+
+\vspace{-.2in}
+\bm = \, \R_{ \ge 0 } \begin{bmatrix} \v_1 \\ 1 \end{bmatrix} 
+  + \R_{ \ge 0 } \begin{bmatrix} \v_2 \\ 1 \end{bmatrix}
+  + \dots + \R_{ \ge 0 } \begin{bmatrix} \v_n \\ 1 \end{bmatrix} \em
+
+\vspace{-2.9in}
+\hspace{5.2in}
+\includegraphics[totalheight=4in]{../../David/titlepicturenolables-eps-converted-to}
+
+\vspace{-1.1in}
+\bm \cone(\P) \cap \{ \x \in \R^{ d+1 } : \, x_{ d+1 } = t \} \em
+% = t\P \times \{ t \} \em
+
+\vspace{-.2in}
+contains a copy of \bm t\P \em \ \green $\longrightarrow$
+
+\vspace{-.4in}
+\be \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t 
+\, = \, \sigma_{ \cone(\P) } (1, 1, \dots, 1, z) \ee
+
+\vspace{-.5in}
+If \bm \P \em is a simplex,
+
+\vspace{-.3in}
+\hspace{.6in}
+\bm \displaystyle \sigma_{ \cone(\P) } (\z) \, = \, \frac{ \sigma_\Pi(\z) }{ \displaystyle \prod_{
+\v \text{ vertex } } (1 - \z^\v ) } \em
+\ \ \ \green $\longrightarrow$ \ \ \ 
+\bm \displaystyle  \Ehr_\P (z) \, = \, \frac{ h^*_\P(z) }{ (1-z)^{ d+1 } } \em
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Ehrhart Positivity}
+
+\hspace{1.8in}
+\red Theorem \black
+(Ehrhart 1962) 
+For any lattice polytope \bm \P \em\!\!,
+
+\vspace{-.4in}
+\hspace{1.8in}
+\bm L_\P (t) \em is a polynomial in \bm t \em of
+degree \bm d := \dim \P \em with 
+
+\vspace{-.4in}
+\hspace{1.8in}
+leading coefficient \bm \vol \P \em %(normalized to \bm \aff \P \cap \Z^d \em\!\!) 
+and constant term \bm 1 \em\!\!.
+
+\vspace{-.1in}
+\hspace{2.2in}
+\bm \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \, = \,
+\dfrac{ h_\P^*(z) }{ (1-z)^{ d + 1 } } \em
+
+\vspace{-2.9in}
+\includegraphics[totalheight=2.5in]{../ehrhart}
+
+\red Theorem \black (Stanley 1980) \bm h^*_0, h^*_1, \dots, h^*_d \em are nonnegative integers.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1770,207 +2349,31 @@ where \bm a(z) = z^d \, a(\frac 1 z) \em and \bm \ b(z) = z^{ d-1 } \, b(\frac 1
 \red Open Problem \black \
 Try to prove the analogous theorem for your favorite combinatorial polynomial with nonnegative coefficients.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\foilhead[-20pt]{\green Ehrhart Quasipolynomials}
-
-\red Rational polytope \bm \P \subset \R^d \em -- convex hull of finitely points in \bm \Q^d \em
-
-\red Theorem \black (Ehrhart 1962)
-% For any rational polytope \bm \P \em\!\!,
-\bm L_\P (t) \em is a \red quasi\-polynomial \black in \bm t \em\!\!: 
-\be
-  L_\P (t) \, = \, c_d(t) \, t^d + c_{d-1}(t) \, t^{d-1} + \dots + c_0(t)
-\ee
-where \bm c_0(t), \dots, c_d(t) \em are periodic functions.
-
-% On board: 
-
-% \red Example \ \bm \displaystyle L_{ [0, \frac 1 2] } (t) \, = \, \frac 1 2 \, t + \frac{ 3 + (-1)^{ t } }{ 4 } \em
-
-\thawpage
-\freezepage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\foilhead[-20pt]{\green Ehrhart Quasipolynomials}
-
-\red Rational polytope \bm \P \subset \R^d \em -- convex hull of finitely points in \bm \Q^d \em
-
-\red Theorem \black (Ehrhart 1962)
-% For any rational polytope \bm \P \em\!\!,
-\bm L_\P (t) \em is a \red quasi\-polynomial \black in \bm t \em\!\!: 
-\be
-  L_\P (t) \, = \, c_d(t) \, t^d + c_{d-1}(t) \, t^{d-1} + \dots + c_0(t)
-\ee
-where \bm c_0(t), \dots, c_d(t) \em are periodic functions.
-Equivalently,
-\be \displaystyle 
-  \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \, = \, \dfrac{ h(z) }{ (1-z^p)^{ \dim \P + 1 } }
-\ee
-for some (minimal) \bm p \in \Z_{ >0 } \em (the \red period \black of \bm L_\P (t) \em\!\!).
-
-% On board: 
-
-% \red Example \ \bm \displaystyle \Ehr_{ [0, \frac 1 2] } (z) \, = \, \sum_{ t \ge 0 } \left( \frac 1 2 \, t + \frac{ 3 + (-1)^{ t } }{ 4 } \right) z^t \, = \, \frac{ 1+z }{ (1-z^2)^2 } \em
-
-\red Open Problem \black \
-Study periods of Ehrhart quasipolynomials.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\foilhead[-20pt]{\green Partitions Revisited}
-
-\bm n \em\!\!-gon partitions
-\be
-  T_n := \left\{ (\lambda_1, \dots , \lambda_n) \in \Z^n : \, \lambda_n \ge \cdots \ge \lambda_1 \ge 1 \ \text{ \rm and } \ \lambda_1 + \cdots + \lambda_{n-1} > \lambda_n \right\} 
-\ee
-%
-\red Theorem \black (Andrews--Paule--Riese 2001)
-\ba
-  &\mbox{}& \sum_{ \lambda \in T_n } q^{ \lambda_1 + \dots + \lambda_n } = \frac{ q }{ (1-q) (1-q^2) \cdots (1-q^n) } \\
-  &\mbox{}& \qquad \qquad \qquad \qquad - \ \frac{ q^{ 2n-2 } }{ (1-q) (1-q^2) (1-q^4) \cdots (1-q^{ 2n-2 } ) }
-\ea
-
-\red Geometric Philosophy \black \ The following cone is arithmetically nicer:
-\be
-  \left\{ \x \in \R^n : \, x_n \ge \cdots \ge x_1 > 0 \ \text{ \rm and } \ x_1 +
-\cdots + x_{n-1} \le x_n \right\} 
-\ee
-
-\freezepage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\foilhead[-20pt]{\green Partitions Revisited}
-
-Lecture-hall partitions
-%\vspace{-.5in}
-\be
-\LH_n \ := \ \left \{\lambda\in\Z^n:\, 0 \leq \frac{\lambda_{1}}{{1}}\leq \frac{\lambda_{2}}{{2}} \leq \cdots\leq \frac{\lambda_{n}}{{n}}\right \}
-\ee
-
-\red Lecture-Hall Theorem \black (Bousquet-M\'elou--Eriksson 1997)
-\be \displaystyle \sum_{ \lambda \in \LH_n } q^{ \lambda_1 + \dots + \lambda_n } \ =
-\ \frac{ 1 }{ (1-q) (1-q^3) \cdots (1-q^{ 2n-1 }) }  \ee
-
-\red Open Problem \black \ Explain this geometrically.
-(Caveat: the lecture-hall cone has determinant \bm n! \em\!\!).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\foilhead{\green Recap Day II}
-
-\vspace{-.2in}
-\begin{enumerate}[\mybullet]
-\item Generating functions son chevere
-\item Integer-point transforms of rational polyhedra \ \bm \longrightarrow \em \
-rational functions
-\item Complexity of a simplicial cone: determinant of its generators
-\item Homogenize polytopes
-\item Triangulations
-\item Polynomial data
-\item Thursday: structural results \\ about Ehrhart polynomials
-\end{enumerate}
-
-\vspace{-3.3in}
-\hspace{4.9in}
-\includegraphics[totalheight=2.9in]{../meowthematics.jpg}
-
-\vspace{-1.6in}
-\hspace{8.7in}
-\tiny
-\rotatebox{90}{\copyright Jupiter Davis}
-
-\normalsize
-
-\thawpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \end{document}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-\thispagestyle{empty}
-\
-
-\begin{center}
-  {\green\LARGE \textbf{Ehrhart Polynomials} \\[12pt]
-\normalsize
-Day III: Structural Results}
-\end{center}
-
-\vspace{-.2in}
-%\hspace{5.3in}
-\includegraphics[totalheight=5in]{../../David/sublattice3-eps-converted-to}
-
-\vspace{-4.5in} 
-\blue
-\hspace{5in}
-Matthias Beck
-\\[5pt]
-\black
-\hspace{5in}
-San Francisco State University
-\\[5pt]
-\blue
-\hspace{5in}
-https://matthbeck.github.io/
-\black
-
-\vspace{1in} 
-\hspace{5in}
-VIII Encuentro Colombiano 
-
-\vspace{-.4in} 
-\hspace{5in}
-De Combinatoria
-
-\black
-
-\setcounter{page}{1}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\foilhead{\green Any questions about yesterday?}
-
-\hspace{.3in}
-\bm \displaystyle
-  \sum_{ \lambda \in P_{ 3 } } q^{ \lambda_1 + \lambda_2 + \lambda_3 }
-  \ = \ \sigma_{ \widetilde\K } (q,q,q)
-\em
-
-\vspace{-.3in}
-\hspace{.6in}
-\bm \displaystyle
-    = \ \frac{ q^3 }{ (1-q) (1-q^2) (1-q^3) } 
-\em
-
-\vspace{.7in}
-%\hspace{5.8in}
-\includegraphics[totalheight=3in]{../../../CRT-Book/David/3dim-tiling}
-
-\vspace{-6.9in}
-\hspace{4.9in}
-\includegraphics[totalheight=4in]{../../David/titlepicturenolables-eps-converted-to}
-
-\vspace{-.2in}
-\hspace{4.5in}
-\includegraphics[totalheight=2.5in]{../../../CRT-Book/David/subdivisions}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\foilhead{\green Today's Menu: Structures}
-
-\vspace{-.2in}
-\begin{enumerate}[\mybullet]
-\item  magic
-\vspace{-.1in}
-\item Lots of 
-\end{enumerate}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Any questions about yesterday?}
+
+\vspace{-.1in}
+\hspace{4.3in}
+\includegraphics[totalheight=2in]{../../David/preface_disc-eps-converted-to}
+\hspace{-.1in}
+\includegraphics[totalheight=2in]{../../David/preface_cont-eps-converted-to}
+
+\vspace{-2.9in}
+\includegraphics[totalheight=3.3in]{../../David/octahedron-eps-converted-to}
+
+\vspace{-.5in}
+\includegraphics[totalheight=3in]{../../David/zonotopepaving-eps-converted-to}
+
+\vspace{-3.3in}
+\hspace{6in}
+\includegraphics[totalheight=3in]{../../David/trunccube_arrows-eps-converted-to}
+
 
