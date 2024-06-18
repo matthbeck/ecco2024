@@ -56,7 +56,7 @@
 \def\p{{\boldsymbol p}}
 \def\q{{\boldsymbol q}}
 \def\c{c}
-\DeclareMathOperator{\U}{U}
+\DeclareMathOperator{\LH}{LH}
 
 \begin{document}
 \setlength{\parindent}{0pt}
@@ -659,32 +659,8 @@ Every zonotope admits a \red tiling \black into parallelepipeds
 \vspace{-1.8in}
 \bm \P \em --- half-open \bm d \em\!\!-parallelepiped
 
-\green $\longrightarrow$ \ \bm L_\P(t) \, = \, t^d \em
+\green $\longrightarrow$ \ \bm L_\P(t) \, = \, \vol(\P) \, t^d \em
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\foilhead{\green Birkhoff--von Neumann Revisited}
-
-\vspace{-.7in}
-\includegraphics[totalheight=5.8in]{../birkhoff9roots}
-
-\vspace{-4.5in}
-\hspace{5in}
-For more about roots of 
-
-\vspace{-.35in}
-\hspace{5in}
-(Ehrhart) polynomials, 
-
-\vspace{-.35in}
-\hspace{5in}
-see Braun (2008) and 
-
-\vspace{-.35in}
-\hspace{5in}
-Pfeifle (2010).
-
-\thawpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \foilhead{\green Recap Day I}
@@ -710,6 +686,30 @@ polynomials
 \rotatebox{90}{\copyright Math 883 (2022)}
 
 \normalsize
+
+\thawpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Birkhoff--von Neumann Revisited}
+
+\vspace{-.7in}
+\includegraphics[totalheight=5.8in]{../birkhoff9roots}
+
+\vspace{-4.5in}
+\hspace{5in}
+For more about roots of 
+
+\vspace{-.35in}
+\hspace{5in}
+(Ehrhart) polynomials, 
+
+\vspace{-.35in}
+\hspace{5in}
+see Braun (2008) and 
+
+\vspace{-.35in}
+\hspace{5in}
+Pfeifle (2010).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1818,6 +1818,45 @@ Study periods of Ehrhart quasipolynomials.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\foilhead[-20pt]{\green Partitions Revisited}
+
+\bm n \em\!\!-gon partitions
+\be
+  T_n := \left\{ (\lambda_1, \dots , \lambda_n) \in \Z^n : \, \lambda_n \ge \cdots \ge \lambda_1 \ge 1 \ \text{ \rm and } \ \lambda_1 + \cdots + \lambda_{n-1} > \lambda_n \right\} 
+\ee
+%
+\red Theorem \black (Andrews--Paule--Riese 2001)
+\ba
+  &\mbox{}& \sum_{ \lambda \in T_n } q^{ \lambda_1 + \dots + \lambda_n } = \frac{ q }{ (1-q) (1-q^2) \cdots (1-q^n) } \\
+  &\mbox{}& \qquad \qquad \qquad \qquad - \ \frac{ q^{ 2n-2 } }{ (1-q) (1-q^2) (1-q^4) \cdots (1-q^{ 2n-2 } ) }
+\ea
+
+\red Geometric Philosophy \black \ The following cone is arithmetically nicer:
+\be
+  \left\{ \x \in \R^n : \, x_n \ge \cdots \ge x_1 > 0 \ \text{ \rm and } \ x_1 +
+\cdots + x_{n-1} \le x_n \right\} 
+\ee
+
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Partitions Revisited}
+
+Lecture-hall partitions
+%\vspace{-.5in}
+\be
+\LH_n \ := \ \left \{\lambda\in\Z^n:\, 0 \leq \frac{\lambda_{1}}{{1}}\leq \frac{\lambda_{2}}{{2}} \leq \cdots\leq \frac{\lambda_{n}}{{n}}\right \}
+\ee
+
+\red Lecture-Hall Theorem \black (Bousquet-M\'elou--Eriksson 1997)
+\be \displaystyle \sum_{ \lambda \in \LH_n } q^{ \lambda_1 + \dots + \lambda_n } \ =
+\ \frac{ 1 }{ (1-q) (1-q^3) \cdots (1-q^{ 2n-1 }) }  \ee
+
+\red Open Problem \black \ Explain this geometrically.
+(Caveat: the lecture-hall cone has determinant \bm n! \em\!\!).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \foilhead{\green Recap Day II}
 
 \vspace{-.2in}
@@ -1844,6 +1883,93 @@ rational functions
 \normalsize
 
 \thawpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\thispagestyle{empty}
+\
+
+\begin{center}
+  {\green\LARGE \textbf{Ehrhart Polynomials} \\[12pt]
+\normalsize
+Day III: Structural Results}
+\end{center}
+
+\vspace{-.2in}
+%\hspace{5.3in}
+\includegraphics[totalheight=5in]{../../David/sublattice3-eps-converted-to}
+
+\vspace{-4.5in} 
+\blue
+\hspace{5in}
+Matthias Beck
+\\[5pt]
+\black
+\hspace{5in}
+San Francisco State University
+\\[5pt]
+\blue
+\hspace{5in}
+https://matthbeck.github.io/
+\black
+
+\vspace{1in} 
+\hspace{5in}
+VIII Encuentro Colombiano 
+
+\vspace{-.4in} 
+\hspace{5in}
+De Combinatoria
+
+\black
+
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Any questions about yesterday?}
+
+\hspace{.3in}
+\bm \displaystyle
+  \sum_{ \lambda \in P_{ 3 } } q^{ \lambda_1 + \lambda_2 + \lambda_3 }
+  \ = \ \sigma_{ \widetilde\K } (q,q,q)
+\em
+
+\vspace{-.3in}
+\hspace{.6in}
+\bm \displaystyle
+    = \ \frac{ q^3 }{ (1-q) (1-q^2) (1-q^3) } 
+\em
+
+\vspace{.7in}
+%\hspace{5.8in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/3dim-tiling}
+
+\vspace{-6.9in}
+\hspace{4.9in}
+\includegraphics[totalheight=4in]{../../David/titlepicturenolables-eps-converted-to}
+
+\vspace{-.2in}
+\hspace{4.5in}
+\includegraphics[totalheight=2.5in]{../../../CRT-Book/David/subdivisions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Today's Menu: Structures}
+
+\vspace{-.2in}
+\begin{enumerate}[\mybullet]
+\item  magic
+\vspace{-.1in}
+\item Lots of 
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}

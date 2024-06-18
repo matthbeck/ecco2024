@@ -24,6 +24,7 @@
 \def\ZZ{\mathbb{Z}}
 \newcommand\cone{\operatorname{cone}} 
 \newcommand\vol{\operatorname{vol}} 
+\DeclareMathOperator{\LH}{LH}
 
 \def\open{$[${\tt research problem}$]$ }
 \def\sage{$[${\tt sage}$]$ }
@@ -169,6 +170,13 @@ VIII Encuentro Colombiano De Combinatoria
 partitions into at most $n$ parts.
 Adjust your computations for partitions into exactly $n$ parts.
 
+\item Compute the integer-point transform of the cone
+$
+  \RR_{ \ge 0 } \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} + 
+  \RR_{ \ge 0 } \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} + 
+  \RR_{ \ge 0 } \begin{bmatrix} 2 \\ 1 \\ 1 \end{bmatrix} \, .
+$
+
 \def\la{\lambda}
 
 \item Let $n \ge 3$ and
@@ -187,34 +195,30 @@ the set of all ``$n$-gon partitions.''
 and conclude from it the generating function for $T_n$.
 \end{enumerate}
 
-\item Compute the integer-point transform of the cone
-$
-  \RR_{ \ge 0 } \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} + 
-  \RR_{ \ge 0 } \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} + 
-  \RR_{ \ge 0 } \begin{bmatrix} 2 \\ 1 \\ 1 \end{bmatrix} \, .
-$
+\item 
+Recall the lecture-hall partitions
+\[
+\LH_n \ := \ \left \{\lambda\in\ZZ^n:\, 0 \leq \frac{\lambda_{1}}{{1}}\leq
+\frac{\lambda_{2}}{{2}} \leq \cdots\leq \frac{\lambda_{n}}{{n}}\right \} .
+\]
+Compute the generators of the underlying cone, and verify the first few instances of
+the 
+Lecture-Hall Theorem:
+\[ \sum_{ \lambda \in \LH_n } q^{ \lambda_1 + \dots + \lambda_n } \ =
+\ \frac{ 1 }{ (1-q) (1-q^3) \cdots (1-q^{ 2n-1 }) } \, . \] 
+
+\item Pick five points in $\ZZ^3$ and let $\cP$ be their convex hull (in $\RR^3$). Compute the Ehrhart polynomial of~$\cP$.
+
+\item \open
+Choose $d+1$ of the $2^d$ vertices of the unit $d$-cube, and let $\Delta$ be the simplex defined by their convex hull.
+\begin{enumerate}[(a)]
+\item Which choice of vertices maximizes $\vol \Delta$?
+\item What is the maximum volume of such a $\Delta$?
+\end{enumerate}
 
 \item Give an explicit bijection between the faces (including $\varnothing$) of a
 given polytope $\cP$ and the faces (excluding $\varnothing$) of its homogenization
 $\cone(\cP)$.
-
-\item Pick five points in $\ZZ^3$ and let $\cP$ be their convex hull (in $\RR^3$). Compute the Ehrhart polynomial of~$\cP$.
-
-\item Give an example of a polynomial $f(n)$ with (some) negative coefficients whose corresponding generating function
-numerator polynomial $h(z)$ has only positive coefficients.
-
-\item For a lattice polytope $\cP$, the numerator of the generating function is the \emph{$h^*$-polynomial} of $\cP$.
-Give a non-unimodal\footnote{
-A polynomial is \emph{unimodal} if its coefficients increase up to some point and
-then decrease.
-} example of an $h^*$-polynomial.
-
-\item \open
-Now let
-$\cP = \left\{ \bx \in [0,1]^d : \, x_1 + x_2 + \dots + x_d = k \right\}$,
-for your favorite integers $2 \le k \le d-2$. 
-(This is the \emph{$(d, k)$-hypersimplex}.)
-Prove that the $h^*$-polynomial of $\cP$ is unimodal.
 
 \item Suppose $\cP \subset \RR^m$ and $\cQ \subset \RR^n$ are lattice polytopes.
 Prove that the \emph{convolution} of their Ehrhart polynomials,
@@ -264,6 +268,22 @@ VIII Encuentro Colombiano De Combinatoria
 
 \begin{enumerate}[(1)]
 \vspace{-10pt}
+\item Give an example of a polynomial $f(n)$ with (some) negative coefficients whose corresponding generating function
+numerator polynomial $h(z)$ has only positive coefficients.
+
+\item For a lattice polytope $\cP$, the numerator of the generating function is the \emph{$h^*$-polynomial} of $\cP$.
+Give a non-unimodal\footnote{
+A polynomial is \emph{unimodal} if its coefficients increase up to some point and
+then decrease.
+} example of an $h^*$-polynomial.
+
+\item \open
+Now let
+$\cP = \left\{ \bx \in [0,1]^d : \, x_1 + x_2 + \dots + x_d = k \right\}$,
+for your favorite integers $2 \le k \le d-2$. 
+(This is the \emph{$(d, k)$-hypersimplex}.)
+Prove that the $h^*$-polynomial of $\cP$ is unimodal.
+
 \item For any polynomial $h(z)$ of degree $d$, show there exist unique polynomials $a(z)$ and $b(z)$ such that
 \[
   h(z) = a(z) + z \, b(z)
@@ -280,12 +300,5 @@ coefficients.
 \end{document}
 
 % ========================================================
-
-\item \open
-Choose $d+1$ of the $2^d$ vertices of the unit $d$-cube, and let $\Delta$ be the simplex defined by their convex hull.
-\begin{enumerate}[(a)]
-\item Which choice of vertices maximizes $\vol \Delta$?
-\item What is the maximum volume of such a $\Delta$?
-\end{enumerate}
 
 
