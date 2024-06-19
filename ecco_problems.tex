@@ -13,6 +13,7 @@
 \evensidemargin=0in
 
 \def\be{\mathbf{e}}
+\def\bq{\mathbf{q}}
 \def\bv{\mathbf{v}}
 \def\bx{\mathbf{x}}
 \def\0{\mathbf{0}}
@@ -22,6 +23,7 @@
 \def\QQ{\mathbb{Q}}
 \def\RR{\mathbb{R}}
 \def\ZZ{\mathbb{Z}}
+\def\hopen{\mathbb{H}}
 \newcommand\cone{\operatorname{cone}} 
 \newcommand\vol{\operatorname{vol}} 
 \DeclareMathOperator{\LH}{LH}
@@ -59,6 +61,9 @@ $(a,b)$\index{line segment} and $(c,d)$. Show that the number of integer points 
 , \left( 1,0,1 \right) , \left( 0,1,1 \right)$.)
 
 \item 
+Katie likes $\sum_{ k=1 }^{ \infty } \frac{ 1 }{ n^{ 3k+1 }  } \left( x_{ 2 }  \right)
+$
+
 Recall that the standard simplex $\Delta \in \RR^d$ is the convex hull of
 the unit vectors and the origin. Verify that
 \[ L_\Delta(t) = \binom{d+t} d \qquad \text{ and } \qquad L_{ \Delta^\circ }(t)
@@ -207,7 +212,7 @@ Lecture-Hall Theorem:
 \[ \sum_{ \lambda \in \LH_n } q^{ \lambda_1 + \dots + \lambda_n } \ =
 \ \frac{ 1 }{ (1-q) (1-q^3) \cdots (1-q^{ 2n-1 }) } \, . \] 
 
-\item Pick five points in $\ZZ^3$ and let $\cP$ be their convex hull (in $\RR^3$). Compute the Ehrhart polynomial of~$\cP$.
+\item \sage Pick five points in $\ZZ^3$ and let $\cP$ be their convex hull (in $\RR^3$). Compute the Ehrhart polynomial of~$\cP$.
 
 \item \open
 Choose $d+1$ of the $2^d$ vertices of the unit $d$-cube, and let $\Delta$ be the simplex defined by their convex hull.
@@ -264,24 +269,24 @@ Show that all lower faces of $\cQ$ are simplices, and that their projections und
 VIII Encuentro Colombiano De Combinatoria
 \end{center}
 
-\paragraph{Day III: Ehrhart Structures}
+\paragraph{Day III: Positivity, Reciprocity \& Friends}
 
 \begin{enumerate}[(1)]
 \vspace{-10pt}
 
-\item Let $\P \subset \R^d$ be a full-dimensional polyhedron with dissection $\P = \P_1 \cup \P_2 \cup \cdots \cup \P_m$.
-If $\q \in \R^d$ is generic relative to each $\P_i$, then
+\item Let $\cP \subset \RR^d$ be a full-dimensional polyhedron with dissection $\cP = \cP_1 \cup \cP_2 \cup \cdots \cup \cP_m$.
+If $\bq \in \RR^d$ is generic relative to each $\cP_i$, then
 \[
-  \hopen_\q \P \ = \ \hopen_\q \P_1 \uplus \hopen_\q \P_2 \uplus \cdots \uplus
-\hopen_\q \P_m  \, .
+  \hopen_\bq \cP \ = \ \hopen_\bq \cP_1 \uplus \hopen_\bq \cP_2 \uplus \cdots \uplus
+\hopen_\bq \cP_m  \, .
 \]
 
 \item Prove Ehrhart's theorem for half-open lattice polytopes.
 
-\item Give an example of a polynomial $f(n)$ with (some) negative coefficients whose corresponding generating function
+\item \sage Give an example of a polynomial $f(n)$ with (some) negative coefficients whose corresponding generating function
 numerator polynomial $h(z)$ has only positive coefficients.
 
-\item For a lattice polytope $\cP$, the numerator of the generating function is the \emph{$h^*$-polynomial} of $\cP$.
+\item \sage For a lattice polytope $\cP$, the numerator of the generating function is the \emph{$h^*$-polynomial} of $\cP$.
 Give a non-unimodal\footnote{
 A polynomial is \emph{unimodal} if its coefficients increase up to some point and
 then decrease.

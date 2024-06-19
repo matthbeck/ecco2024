@@ -1666,7 +1666,7 @@ Study periods of Ehrhart quasipolynomials.
 \ \frac{ 1 }{ (1-q) (1-q^3) \cdots (1-q^{ 2n-1 }) }  \ee
 
 \red Open Problem \black \ Explain this geometrically.
-(Caveat: the lecture-hall cone has determinant \bm n! \em\!\!).
+(Caveat: the lecture-hall cone has determinant \bm (n-1)! \em\!\!).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1674,14 +1674,14 @@ Study periods of Ehrhart quasipolynomials.
 
 \vspace{-.2in}
 \begin{enumerate}[\mybullet]
-\item Generating functions son chevere
+\item Generating functions son cheveres
 \item Integer-point transforms of rational polyhedra \ \bm \longrightarrow \em \
 rational functions
 \item Arithmetic complexity of a simplicial cone: determinant of its generators
 \item Homogenize polytopes
 \item Triangulations
 \item Polynomial data
-\item Thursday: postitivity, \\ reciprocity \& friends
+\item Thursday: positivity, \\ reciprocity \& friends
 \end{enumerate}
 
 \vspace{-3.3in}
@@ -1983,7 +1983,7 @@ label={right:\bm \q \em}](q) at (5.4, 0.4) {} ;
 \bm \F \em is \red visible \black from \bm \q \in \R^d \em if \bm \q \notin H \em
 
 %\vspace{-.1in}
-\hspace{.8in}
+\hspace{1.4in}
 \includegraphics[totalheight=3in]{../../../CRT-Book/David/beneath-beyond-cone}
 
 Equivalent lingo: \bm \q \in \R^d \em is \red beyond \bm \F \em (and \red beneath
@@ -2166,6 +2166,84 @@ and constant term \bm 1 \em\!\!.
 
 \red Theorem \black (Stanley 1980) \bm h^*_0, h^*_1, \dots, h^*_d \em are nonnegative integers.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Ehrhart Positivity}
+
+\hspace{1.8in}
+\red Theorem \black
+(Ehrhart 1962) 
+For any lattice polytope \bm \P \em\!\!,
+
+\vspace{-.4in}
+\hspace{1.8in}
+\bm L_\P (t) \em is a polynomial in \bm t \em of
+degree \bm d := \dim \P \em with 
+
+\vspace{-.4in}
+\hspace{1.8in}
+leading coefficient \bm \vol \P \em %(normalized to \bm \aff \P \cap \Z^d \em\!\!) 
+and constant term \bm 1 \em\!\!.
+
+\vspace{-.1in}
+\hspace{2.2in}
+\bm \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \, = \,
+\dfrac{ h_\P^*(z) }{ (1-z)^{ d + 1 } } \em
+
+\vspace{-2.9in}
+\includegraphics[totalheight=2.5in]{../ehrhart}
+
+\red Theorem \black (Stanley 1980) \bm h^*_0, h^*_1, \dots, h^*_d \em are nonnegative integers.
+
+\red Open Problem \black \ Prove that the \bm h^* \em\!\!-polynomial of \\
+\mybullet hypersimplices \\
+\mybullet polytopes admitting a unimodular triangulation \\
+\mybullet polytope with the integer decomposition property 
+are \red unimodal
+
+\green $\checkmark$ \black Gorenstein polytopes with regular
+unimodular triangulation (Bruns--R\"omer 2007) \\
+\green $\checkmark$ \black Zonotopes (\MB\!--Jochemko--McCullough 2019)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Recall:$^2$ Integer-point Complexity of a Simplicial Cone}
+
+What if \bm \K \em is (still simplicial and rational but) not unimodular?
+\\
+Say \bm \w_1, \w_2, \w_3 \in \Z^3 \em are linearly independent,
+\bm \det [\w_1 \, \w_2 \, \w_3] = D > 1 \em
+
+\bm \K = \R_{ \ge 0 } \, \w_1 + \R_{ \ge 0 } \, \w_2 + \R_{ \ge 0 } \, \w_3 \em
+
+\red Idea \black \ Tile \bm \K \em with the half-open parallelepiped
+\\
+\bm \Pi = [0,1) \, \w_1 + [0,1) \, \w_2 + [0,1) \, \w_3 \em
+
+\vspace{-1.9in}
+\hspace{5.8in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/3dim-tiling-domain}
+
+\vspace{-1.4in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/3dim-tiling}
+
+\vspace{-3.5in}
+\hspace{4.2in}
+\green $\downarrow$
+
+\hspace{3.7in}
+\bm \sigma_\K(z_1, z_2, z_3) = \em
+
+\vspace{-.2in}
+\hspace{3.7in}
+\bm \displaystyle \frac{ \sigma_\Pi(z_1, z_2, z_3) }{ (1 - \z^{ \w_1 }) (1 - \z^{
+\w_2 }) (1 - \z^{ \w_3 })  } \em
+
+\hspace{3.7in}
+where \bm \z^\m = z_1^{ m_1 } z_2^{ m_2 } z_3^{ m_3 } \em
+
+\thawpage
+\freezepage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \foilhead[-20pt]{\green Ehrhart Polynomials}
