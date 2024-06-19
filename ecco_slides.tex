@@ -1,5 +1,5 @@
 \documentclass[landscape]{foils}
-\usepackage{graphicx,color,amsmath,amssymb,latexsym,enumerate,rotate}
+\usepackage{graphicx,color,amsmath,amssymb,latexsym,enumerate,rotate,mathabx}
 \usepackage{tikz}
 \usepackage{changepage}
 \usetikzlibrary{arrows,positioning, calc}
@@ -70,6 +70,7 @@
 \def\Z{\mathbb{Z}}
 \def\Q{\mathbb{Q}}
 \def\R{\mathbb{R}}
+\def\C{\mathcal{C}}
 \def\F{\mathcal{F}}
 \def\G{\mathcal{G}}
 \def\P{\mathcal{P}}
@@ -87,6 +88,10 @@
 \newcommand\Ehr{\operatorname{Ehr}} 
 \newcommand\fl[1]{\left\lfloor {#1} \right\rfloor} 
 \newcommand\fr[1]{\left\{ {#1} \right\}} 
+\newcommand\Chat{\widehat{\K}}
+\newcommand\PPhat{{\widehat{\Pi}}}
+\newcommand\Ccheck{\widecheck{\K}}
+\newcommand\PPcheck{\widecheck{\Pi}}
 
 \def\headercolor{\green}
 
@@ -2244,6 +2249,57 @@ where \bm \z^\m = z_1^{ m_1 } z_2^{ m_2 } z_3^{ m_3 } \em
 
 \thawpage
 \freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Simplicial Cone Reciprocity}
+
+\bm \v_1, \v_2, \dots, \v_k \in \Z^d \em linearly independent
+%
+\ba
+        \Chat &:=& \R_{ \ge 0 } \v_1 + \dots + \R_{ \ge 0 } \v_{ m-1 } +
+        \R_{ >0 } \v_m + \dots + \R_{ >0 } \v_k \\
+        \Ccheck &:=& \R_{ >0 } \v_1 + \dots + \R_{ >0 } \v_{ m-1 } + \R_{
+        \ge 0 } \v_m + \dots + \R_{ \ge 0 } \v_k 
+\ea
+ \ \ \quad \quad \quad \green $\downarrow$
+\be
+  \sigma_{ \Chat } (\z)
+  \, = \, \frac{ \sigma_{ \PPhat } (\z) }{ \left( 1 - \z^{ \v_1 } \right) \cdots \left( 1 - \z^{ \v_k } \right) }
+\qquad \qquad
+  \sigma_{ \Ccheck } (\z)
+  \, = \, \frac{ \sigma_{ \PPcheck } (\z) }{ \left( 1 - \z^{ \v_1 } \right) \cdots \left( 1 - \z^{ \v_k } \right) }
+\ee
+where
+\ba
+\PPhat &:=& [0,1) \, \v_1 + \dots + [0,1) \, \v_{ m-1 } + (0,1] \, \v_m + \dots +
+(0,1] \, \v_k \\
+\PPcheck &:=& (0,1] \, \v_1 + \dots + (0,1] \, \v_{ m-1 } + [0,1) \, \v_m + \dots + [0,1) \, \v_k 
+\ea
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Simplicial Cone Reciprocity}
+
+\bm \v_1, \v_2, \dots, \v_k \in \Z^d \em linearly independent
+%
+\ba
+\PPhat &:=& [0,1) \, \v_1 + \dots + [0,1) \, \v_{ m-1 } + (0,1] \, \v_m + \dots +
+(0,1] \, \v_k \\
+\PPcheck &:=& (0,1] \, \v_1 + \dots + (0,1] \, \v_{ m-1 } + [0,1) \, \v_m + \dots + [0,1) \, \v_k 
+\ea
+%
+\red Fun Fact \ \ \bm \PPhat \, = \, \v_1 + \v_2 + \dots + \v_k -  \PPcheck \em
+
+\vspace{-.2in}
+\hspace{.4in}
+\includegraphics[totalheight=2.6in]{../../../CRT-Book/David/two-parallelpipeds}
+
+
+ \green $\longrightarrow$ \ 
+\bm \displaystyle \sigma_{ \PPhat } (\z) \, = \, \z^{ \v_1 + \v_2 + \dots + \v_k }\,\sigma_{ \PPcheck }\left( \frac 1 \z \right) \em
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \foilhead[-20pt]{\green Ehrhart Polynomials}
