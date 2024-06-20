@@ -24,6 +24,7 @@
 \def\RR{\mathbb{R}}
 \def\ZZ{\mathbb{Z}}
 \def\hopen{\mathbb{H}}
+\newcommand\Ehr{\operatorname{Ehr}} 
 \newcommand\cone{\operatorname{cone}} 
 \newcommand\vol{\operatorname{vol}} 
 \DeclareMathOperator{\LH}{LH}
@@ -70,7 +71,6 @@ the unit vectors and the origin. Verify that
 \def\Q{\mathcal Q}
 \newcommand\DouPyr{\operatorname{BiPyr}} 
 \def\v{{\bf v}}
-\newcommand\Ehr{\operatorname{Ehr}} 
 
 \item Given a $(d-1)$-polytope $\Q$ with vertices $\v_1, \v_2, \dots, \v_m$
 such that the origin is in $\Q$, we define the bipyramid $\DouPyr(\Q)$ over
@@ -270,14 +270,51 @@ VIII Encuentro Colombiano De Combinatoria
 \begin{enumerate}[(1)]
 \vspace{-10pt}
 
+\item Let $\cP \subset \RR^d$ be a full-dimensional polytope.
+Show that there is no $\bq \in \RR^d$ such that $\hopen^\bq \cP = \cP$.
+
 \item Let $\cP \subset \RR^d$ be a full-dimensional polyhedron with dissection $\cP = \cP_1 \cup \cP_2 \cup \cdots \cup \cP_m$.
 If $\bq \in \RR^d$ is generic relative to each $\cP_i$, then
 \[
   \hopen_\bq \cP \ = \ \hopen_\bq \cP_1 \uplus \hopen_\bq \cP_2 \uplus \cdots \uplus
-\hopen_\bq \cP_m  \, .
+\hopen_\bq \cP_m 
+\]
+and
+\[
+  \hopen^\bq \cP \ = \ \hopen^\bq \cP_1 \uplus \hopen^\bq \cP_2 \uplus \cdots \uplus
+\hopen^\bq \cP_m \, .
 \]
 
+\def\Rnn{\RR_{ \ge 0 }} 
+\newcommand\Chat{\widehat{\mathcal{K}}}
+\newcommand\Ccheck{\widecheck{\mathcal{K}}}
+\newcommand\C{\mathcal{K}}
+
+\item Fix linearly independent vectors $\bv_1, \bv_2, \dots, \bv_d \in \ZZ^d$ and consider the simplicial cone
+\[
+  \C \ := \ \Rnn \bv_1 + \Rnn \bv_2 + \dots + \Rnn \bv_d \, .
+\]
+Prove that, for
+\[
+  \Chat \ := \ \Rnn \bv_1 + \dots + \Rnn \bv_{ m-1 } + \RR_{ >0 } \bv_m + \dots + \RR_{ >0 } \bv_d \, ,
+\]
+there exists $\bq \in \RR^d$ (generic relative to $\C$) such that
+\[
+  \Chat \ = \ \hopen_\bq \C \, .
+\]
+Conversely, show that, for every generic $\bq \in \RR^d$ relative to $\C$, the half-open cone $\hopen_\bq \C$ is of the form $\Chat$ for some reordering of the $\bv_j$s and some~$m$.
+
 \item Prove Ehrhart's theorem for half-open lattice polytopes.
+
+\item Let $S$ be an $m$-dimensional subset of $\RR^d$ (i.e., the affine span of $S$ has dimension $m$).
+Then we define the \emph{relative volume} of $S$ to be
+\[ \vol S \ := \ \lim_{ n \to \infty } \frac{ 1 }{ n^m } \left| n \, S \cap \ZZ^d \right| . \]
+\begin{enumerate}[{\rm (a)}]
+\item Convince yourself that $\vol S$ is the usual volume if $m = d$.
+\item Show that, if $\Delta \subset \RR^d$ is an $m$-dimensional lattice
+    simplex, then the leading coefficient of $L_\Delta(n)$
+(i.e., the coefficient of $n^m$) equals $\vol \Delta$.
+\end{enumerate}
 
 \item \sage Give an example of a polynomial $f(n)$ with (some) negative coefficients whose corresponding generating function
 numerator polynomial $h(z)$ has only positive coefficients.
@@ -294,6 +331,36 @@ $\cP = \left\{ \bx \in [0,1]^d : \, x_1 + x_2 + \dots + x_d = k \right\}$,
 for your favorite integers $2 \le k \le d-2$. 
 (This is the \emph{$(d, k)$-hypersimplex}.)
 Prove that the $h^*$-polynomial of $\cP$ is unimodal.
+
+\def\hs{h^*}
+
+\item Let $\cP$ be a lattice $d$-polytope and write 
+\[
+    \Ehr_\cP (z) \ = \ \frac{ \hs_d \, z^d + \hs_{ d-1 } z^{ d-1 } + \dots +
+    \hs_0 }{ (1-z)^{ d+1 } } \, .
+\]
+Prove that:
+\begin{enumerate}[{\rm (a)}]
+\item $\hs_d = \left| \cP^\circ \cap \ZZ^d \right| .$
+\item $\hs_1 = \left| \cP \cap \ZZ^d \right| - d - 1 \, .$
+\item $\hs_0 + \hs_1 + \dots + \hs_d = d! \vol(\cP) \, .$
+\end{enumerate}
+
+\item A \emph{reflexive polytope}
+is a lattice polytope $\cP$ such that the origin is the unique interior lattice point of
+$\cP$ and\footnote{More generally, if the $1$ on the right-hand side of \eqref{reflexivedef}
+is replaced by an arbitrary fixed positive integer, we call $\cP$ \emph{Gorenstein}. You may
+think about how this exercise can be extended to Gorenstein polytopes.}
+\begin{equation}\label{reflexivedef}
+  L_{ \cP^\circ } (n) \ = \ L_\cP (n-1)
+  \qquad \text{ for all } n \in \ZZ_{ >0 }  \, .
+\end{equation}
+Prove that if $\cP$ is a lattice $d$-polytope that contains the origin in its interior and that has the Ehrhart series
+\[
+  \Ehr_\cP(z) \ = \ \frac{ h^*_d \, z^d + h^*_{ d-1 } \, z^{ d-1 } + \dots + h^*_1 \, z + h^*_0 }{ (1-z)^{ d+1 } } \, ,
+\]
+then $\cP$ is reflexive if and only if $ h^*_k = h^*_{ d-k }$ for all $0 \le k
+\le \frac d 2$.
 
 \item For any polynomial $h(z)$ of degree $d$, show there exist unique polynomials $a(z)$ and $b(z)$ such that
 \[
