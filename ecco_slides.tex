@@ -2294,11 +2294,48 @@ where
 \hspace{.4in}
 \includegraphics[totalheight=2.6in]{../../../CRT-Book/David/two-parallelpipeds}
 
-
- \green $\longrightarrow$ \ 
+\green $\longrightarrow$ \ 
 \bm \displaystyle \sigma_{ \PPhat } (\z) \, = \, \z^{ \v_1 + \v_2 + \dots + \v_k }\,\sigma_{ \PPcheck }\left( \frac 1 \z \right) \em
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\foilhead[-20pt]{\green Stanley Reciprocity}
+
+\vspace{-.6in}
+\be
+  \sigma_{ \Chat } (\z)
+  \, = \, \frac{ \sigma_{ \PPhat } (\z) }{ \left( 1 - \z^{ \v_1 } \right) \cdots \left( 1 - \z^{ \v_k } \right) }
+\qquad \qquad
+  \sigma_{ \Ccheck } (\z)
+  \, = \, \frac{ \sigma_{ \PPcheck } (\z) }{ \left( 1 - \z^{ \v_1 } \right) \cdots \left( 1 - \z^{ \v_k } \right) }
+\ee
+
+\vspace{-.4in}
+\bm \displaystyle \ \ \sigma_{ \PPhat } (\z) \, = \, \z^{ \v_1 + \v_2 + \dots + \v_k }\,\sigma_{ \PPcheck }\left( \frac 1 \z \right) \em
+\qquad \quad \green $\longrightarrow$ \ 
+\ba
+  \sigma_{ \Ccheck } \left( \frac 1 \z \right)
+  &=& \frac{ \sigma_{ \PPcheck } (\frac 1 \z) }{ \left( 1 - \z^{ -\v_1 } \right) \cdots \left( 1 - \z^{ -\v_k } \right) }
+  \ = \ \frac{\z^{ -\v_1 - \v_2 - \dots - \v_k } \, \sigma_{ \PPhat } (\z)  }{ \left( 1 - \z^{ -\v_1 } \right) \cdots \left( 1 - \z^{ -\v_k } \right) } \\ &=& (-1)^k \frac{ \sigma_{ \PPhat } (\z) }{ \left( 1 - \z^{ \v_1 } \right) \cdots \left( 1 - \z^{ \v_
+k } \right) }
+  \ = \ (-1)^k \, \sigma_{ \Chat } (\z) 
+\ea
+%
+\red Theorem \black (Stanley) \
+Let \bm \K \subset \R^d \em be a full-dimensional pointed rational cone, and let \bm
+\q \in \R^d \em be generic relative to \bm \K \em\!\!.
+Then
+
+\vspace{-.5in}
+\hspace{5.1in}
+\bm \displaystyle
+  \sigma_{ \hopen_\q \K } \left( \frac 1 \z \right) \, = \, (-1)^d \, \sigma_{ \hopen^\q \K } (\z) 
+\em
+
+\vspace{-.4in}
+\red Corollary \black \
+\bm \displaystyle \sigma_{ \K } \left( \frac 1 \z \right) \, = \, (-1)^d \, \sigma_{
+\K^\circ } (\z) \em
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
