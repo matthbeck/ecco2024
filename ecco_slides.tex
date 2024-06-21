@@ -76,6 +76,7 @@
 \def\P{\mathcal{P}}
 \def\cQ{\mathcal{Q}}
 \def\K{\mathcal{K}}
+\def\OP{\mathcal{O}}
 \def\cZ{\mathcal{Z}}
 \def\m{\mathbf{m}}
 \def\v{\mathbf{v}}
@@ -1749,7 +1750,7 @@ De Combinatoria
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\foilhead{\green Any questions about yesterday?}
+\foilhead{\green Any questions about Tuesday?}
 
 \hspace{.3in}
 \bm \displaystyle
@@ -2207,7 +2208,8 @@ and constant term \bm 1 \em\!\!.
 are \red unimodal
 
 \green $\checkmark$ \black Gorenstein polytopes with regular
-unimodular triangulation (Bruns--R\"omer 2007) \\
+unimodular triangulation (Bruns-- \\
+\mbox{} \ \ \  R\"omer 2007) \\
 \green $\checkmark$ \black Zonotopes (\MB\!--Jochemko--McCullough 2019)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2294,10 +2296,89 @@ where
 \hspace{.4in}
 \includegraphics[totalheight=2.6in]{../../../CRT-Book/David/two-parallelpipeds}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Simplicial Cone Reciprocity}
+
+\bm \v_1, \v_2, \dots, \v_k \in \Z^d \em linearly independent
+%
+\ba
+\PPhat &:=& [0,1) \, \v_1 + \dots + [0,1) \, \v_{ m-1 } + (0,1] \, \v_m + \dots +
+(0,1] \, \v_k \\
+\PPcheck &:=& (0,1] \, \v_1 + \dots + (0,1] \, \v_{ m-1 } + [0,1) \, \v_m + \dots + [0,1) \, \v_k 
+\ea
+%
+\red Fun Fact \ \ \bm \PPhat \, = \, \v_1 + \v_2 + \dots + \v_k -  \PPcheck \em
+
+\vspace{-.2in}
+\hspace{.4in}
+\includegraphics[totalheight=2.6in]{../../../CRT-Book/David/two-parallelpipeds}
+
 \green $\longrightarrow$ \ 
 \bm \displaystyle \sigma_{ \PPhat } (\z) \, = \, \z^{ \v_1 + \v_2 + \dots + \v_k }\,\sigma_{ \PPcheck }\left( \frac 1 \z \right) \em
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Stanley Reciprocity}
+
+\vspace{-.6in}
+\be
+  \sigma_{ \Chat } (\z)
+  \, = \, \frac{ \sigma_{ \PPhat } (\z) }{ \left( 1 - \z^{ \v_1 } \right) \cdots \left( 1 - \z^{ \v_k } \right) }
+\qquad \qquad
+  \sigma_{ \Ccheck } (\z)
+  \, = \, \frac{ \sigma_{ \PPcheck } (\z) }{ \left( 1 - \z^{ \v_1 } \right) \cdots \left( 1 - \z^{ \v_k } \right) }
+\ee
+
+\vspace{-.4in}
+\bm \displaystyle \ \ \sigma_{ \PPhat } (\z) \, = \, \z^{ \v_1 + \v_2 + \dots + \v_k }\,\sigma_{ \PPcheck }\left( \frac 1 \z \right) \em
+\qquad \quad \green $\longrightarrow$ \ 
+\ba
+  \sigma_{ \Ccheck } \left( \frac 1 \z \right)
+  &=& \frac{ \sigma_{ \PPcheck } (\frac 1 \z) }{ \left( 1 - \z^{ -\v_1 } \right) \cdots \left( 1 - \z^{ -\v_k } \right) }
+  \ = \ \frac{\z^{ -\v_1 - \v_2 - \dots - \v_k } \, \sigma_{ \PPhat } (\z)  }{ \left( 1 - \z^{ -\v_1 } \right) \cdots \left( 1 - \z^{ -\v_k } \right) } \\ &=& (-1)^k \frac{ \sigma_{ \PPhat } (\z) }{ \left( 1 - \z^{ \v_1 } \right) \cdots \left( 1 - \z^{ \v_
+k } \right) }
+  \ = \ (-1)^k \, \sigma_{ \Chat } (\z) 
+\ea
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Stanley Reciprocity}
+
+\vspace{-.6in}
+\be
+  \sigma_{ \Chat } (\z)
+  \, = \, \frac{ \sigma_{ \PPhat } (\z) }{ \left( 1 - \z^{ \v_1 } \right) \cdots \left( 1 - \z^{ \v_k } \right) }
+\qquad \qquad
+  \sigma_{ \Ccheck } (\z)
+  \, = \, \frac{ \sigma_{ \PPcheck } (\z) }{ \left( 1 - \z^{ \v_1 } \right) \cdots \left( 1 - \z^{ \v_k } \right) }
+\ee
+
+\vspace{-.4in}
+\bm \displaystyle \ \ \sigma_{ \PPhat } (\z) \, = \, \z^{ \v_1 + \v_2 + \dots + \v_k }\,\sigma_{ \PPcheck }\left( \frac 1 \z \right) \em
+\qquad \quad \green $\longrightarrow$ \ 
+\ba
+  \sigma_{ \Ccheck } \left( \frac 1 \z \right)
+  &=& \frac{ \sigma_{ \PPcheck } (\frac 1 \z) }{ \left( 1 - \z^{ -\v_1 } \right) \cdots \left( 1 - \z^{ -\v_k } \right) }
+  \ = \ \frac{\z^{ -\v_1 - \v_2 - \dots - \v_k } \, \sigma_{ \PPhat } (\z)  }{ \left( 1 - \z^{ -\v_1 } \right) \cdots \left( 1 - \z^{ -\v_k } \right) } \\ &=& (-1)^k \frac{ \sigma_{ \PPhat } (\z) }{ \left( 1 - \z^{ \v_1 } \right) \cdots \left( 1 - \z^{ \v_
+k } \right) }
+  \ = \ (-1)^k \, \sigma_{ \Chat } (\z) 
+\ea
+%
+\red Theorem \black (Stanley) \
+Let \bm \K \subset \R^d \em be a full-dimensional pointed rational cone, and let \bm
+\q \in \R^d \em be generic relative to \bm \K \em\!\!.
+Then
+
+\vspace{-.5in}
+\hspace{5.1in}
+\bm \displaystyle
+  \sigma_{ \hopen_\q \K } \left( \frac 1 \z \right) \, = \, (-1)^d \, \sigma_{ \hopen^\q \K } (\z) 
+\em
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \foilhead[-20pt]{\green Stanley Reciprocity}
 
@@ -2339,111 +2420,520 @@ Then
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\foilhead[-20pt]{\green Ehrhart Polynomials}
+\foilhead[-20pt]{\green Ehrhart--Macdonald Reciprocity}
 
-\hspace{1.8in}
-\red Theorem \black
-(Ehrhart 1962) 
-For any lattice polytope \bm \P \em\!\!,
+\red Corollary \black (Stanley) \
+Let \bm \K \subset \R^d \em be a full-dimensional pointed rational cone, and let \bm
+\q \in \R^d \em be generic relative to \bm \K \em\!\!.
+Then
+
+\vspace{-.5in}
+\hspace{5.5in}
+\bm \displaystyle \sigma_{ \K } \left( \frac 1 \z \right) \, = \, (-1)^d \, \sigma_{
+\K^\circ } (\z) \em
 
 \vspace{-.4in}
-\hspace{1.8in}
-\bm L_\P (t) \em is a polynomial in \bm t \em of
-degree \bm d := \dim \P \em with 
+\ba 
+  \Ehr_\P (z)
+  &\!\!\!:=& \!\!\!1 + \sum_{ t \ge 1 } L_\P (t) \, z^t
+  \, = \, \dfrac{ h_\P^*(z) }{ (1-z)^{ d + 1 } } 
+  \, = \, \sigma_{ \cone(\P) } (1, 1, \dots, z) \\
+  \Ehr_{\P^\circ} (z)
+  &\!\!\!:=& \!\!\!\sum_{ t \ge 1 } L_{\P^\circ} (t) \, z^t
+  \, = \, \sigma_{ \cone(\P)^\circ } (1, 1, \dots, z) 
+\ea
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\green Ehrhart--Macdonald Reciprocity}
+
+\red Corollary \black (Stanley) \
+Let \bm \K \subset \R^d \em be a full-dimensional pointed rational cone, and let \bm
+\q \in \R^d \em be generic relative to \bm \K \em\!\!.
+Then
+
+\vspace{-.5in}
+\hspace{5.5in}
+\bm \displaystyle \sigma_{ \K } \left( \frac 1 \z \right) \, = \, (-1)^d \, \sigma_{
+\K^\circ } (\z) \em
 
 \vspace{-.4in}
-\hspace{1.8in}
-leading coefficient \bm \vol \P \em %(normalized to \bm \aff \P \cap \Z^d \em\!\!) 
-and constant term \bm 1 \em\!\!.
+\ba 
+  \Ehr_\P (z)
+  &\!\!\!:=& \!\!\!1 + \sum_{ t \ge 1 } L_\P (t) \, z^t
+  \, = \, \dfrac{ h_\P^*(z) }{ (1-z)^{ d + 1 } } 
+  \, = \, \sigma_{ \cone(\P) } (1, 1, \dots, z) \\
+  \Ehr_{\P^\circ} (z)
+  &\!\!\!:=& \!\!\!\sum_{ t \ge 1 } L_{\P^\circ} (t) \, z^t
+  \, = \, \sigma_{ \cone(\P)^\circ } (1, 1, \dots, z) 
+\ea
+%
+\red Corollary$^2$ \black  \
+Let \bm \P \em be a lattice \bm d \em\!\!-polytope. Then
+\be
+  \Ehr_{\P^\circ} (z) \, = \, \dfrac{ z^{ d+1 } \, h_\P^*(\frac 1 z) }{ (1-z)^{ d + 1 } } 
+  \, = \, (-1)^{d+1} \, \Ehr_\P \left( \frac 1 z \right)
+\ee 
 
-\vspace{-.1in}
-\hspace{2.2in}
-\bm \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \, = \, \dfrac{ h(z) }{ (1-z)^{ d + 1 } } \em
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\vspace{-2.9in}
-\includegraphics[totalheight=2.5in]{../ehrhart}
+\foilhead[-20pt]{\green Ehrhart--Macdonald Reciprocity}
 
-\hspace{1in}
-$\longrightarrow$ \quad \bm L_\P(t) \, = \, h^*_0 \binom{ t+d } d + h^*_1 \binom{ t+d-1 } d + \dots + h^*_d \binom{ t } d \em
+\red Corollary \black (Stanley) \
+Let \bm \K \subset \R^d \em be a full-dimensional pointed rational cone, and let \bm
+\q \in \R^d \em be generic relative to \bm \K \em\!\!.
+Then
 
-\vspace{.3in}
-\red Theorem \black
-(Macdonald 1971)
-\bm (-1)^{ d } L_\P (-t) \em 
-enumerates the \green interior \black lattice points in \bm t \P \em\!\!.
-Equivalently,
+\vspace{-.5in}
+\hspace{5.5in}
+\bm \displaystyle \sigma_{ \K } \left( \frac 1 \z \right) \, = \, (-1)^d \, \sigma_{
+\K^\circ } (\z) \em
 
-\hspace{1in}
-\bm L_{ \P^\circ } (t) \, = \, h^*_d \binom{ t+d-1 } d + h^*_{d-1} \binom{ t+d-2 } d + \dots + h^*_0 \binom{ t-1 } d \em
+\vspace{-.4in}
+\ba 
+  \Ehr_\P (z)
+  &\!\!\!:=& \!\!\!1 + \sum_{ t \ge 1 } L_\P (t) \, z^t
+  \, = \, \dfrac{ h_\P^*(z) }{ (1-z)^{ d + 1 } } 
+  \, = \, \sigma_{ \cone(\P) } (1, 1, \dots, z) \\
+  \Ehr_{\P^\circ} (z)
+  &\!\!\!:=& \!\!\!\sum_{ t \ge 1 } L_{\P^\circ} (t) \, z^t
+  \, = \, \sigma_{ \cone(\P)^\circ } (1, 1, \dots, z) 
+\ea
+%
+\red Corollary$^2$ \black  \
+Let \bm \P \em be a lattice \bm d \em\!\!-polytope. Then
+\be
+  \Ehr_{\P^\circ} (z) \, = \, \dfrac{ z^{ d+1 } \, h_\P^*(\frac 1 z) }{ (1-z)^{ d + 1 } } 
+  \, = \, (-1)^{d+1} \, \Ehr_\P \left( \frac 1 z \right)
+\ee 
+%
+\red Corollary$^3$ \black (Ehrhart--Macdonald) \ \ 
+\bm \displaystyle L_\P \left( \frac 1 t \right) \, = \, (-1)^{d} \, L_{\P^\circ} (t) \em 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Order Polytopes}
+
+\bm (\Pi,\preceq) \em --- finite partially ordered set (\red poset \black\!\!)
+%
+\be
+    \OP_\Pi \ := \ \left\{ \phi \in \R^\Pi :
+    \begin{array}{cl}
+        0        \le \phi(p) \le 1 & \text{for all } p \in \Pi \\
+        \phi(a)  \le \phi(b) & \text{whenever } a \preceq b
+    \end{array}
+    \right\}
+\ee
 
 \thawpage
 \freezepage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\foilhead[-20pt]{\green Ehrhart Polynomials}
+\foilhead[-29pt]{\green Order Polytopes}
 
-\hspace{1.8in}
-\red Theorem \black
-(Ehrhart 1962) 
-For any lattice polytope \bm \P \em\!\!,
-
-\vspace{-.4in}
-\hspace{1.8in}
-\bm L_\P (t) \em is a polynomial in \bm t \em of
-degree \bm d := \dim \P \em with 
-
-\vspace{-.4in}
-\hspace{1.8in}
-leading coefficient \bm \vol \P \em %(normalized to \bm \aff \P \cap \Z^d \em\!\!) 
-and constant term \bm 1 \em\!\!.
-
-\vspace{-.1in}
-\hspace{2.2in}
-\bm \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \, = \, \dfrac{ h(z) }{ (1-z)^{ d + 1 } } \em
-
-\vspace{-2.9in}
-\includegraphics[totalheight=2.5in]{../ehrhart}
-
-\hspace{1in}
-$\longrightarrow$ \quad \bm L_{ \P^\circ } (t) \, = \, h^*_d \binom{ t+d-1 } d + h^*_{d-1} \binom{ t+d-2 } d + \dots + h^*_0 \binom{ t-1 } d \em
-
-\vspace{.3in}
-\red Theorem \black (Stanley 1980) \bm h^*_0, h^*_1, \dots, h^*_d \em are nonnegative integers.
+\bm (\Pi,\preceq) \em --- finite partially ordered set (\red poset \black\!\!)
+%
+\be
+    \OP_\Pi \ := \ \left\{ \phi \in \R^\Pi :
+    \begin{array}{cl}
+        0        \le \phi(p) \le 1 & \text{for all } p \in \Pi \\
+        \phi(a)  \le \phi(b) & \text{whenever } a \preceq b
+    \end{array}
+    \right\}
+\ee
+%
+Integer points in \bm t \, \OP_\Pi \em correspond to \red
+order preserving maps \bm \Pi \to \{ 0, 1, \dots, t \} \em
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\foilhead[-20pt]{\green Ehrhart Polynomials}
+\foilhead[-29pt]{\green Order Polytopes}
 
-\hspace{1.8in}
-\red Theorem \black
-(Ehrhart 1962) 
-For any lattice polytope \bm \P \em\!\!,
+\bm (\Pi,\preceq) \em --- finite partially ordered set (\red poset \black\!\!)
+%
+\be
+    \OP_\Pi \ := \ \left\{ \phi \in \R^\Pi :
+    \begin{array}{cl}
+        0        \le \phi(p) \le 1 & \text{for all } p \in \Pi \\
+        \phi(a)  \le \phi(b) & \text{whenever } a \preceq b
+    \end{array}
+    \right\}
+\ee
+%
+Integer points in \bm t \, \OP_\Pi \em correspond to \red
+order preserving maps \bm \Pi \to \{ 0, 1, \dots, t \} \em
 
 \vspace{-.4in}
-\hspace{1.8in}
-\bm L_\P (t) \em is a polynomial in \bm t \em of
-degree \bm d := \dim \P \em with 
+those in \bm t \, \OP_\Pi^\circ \em correspond to \red
+strictly order preserving maps \bm \Pi \to \{ 1, \dots, t-1 \} \em
+\be
+  \phi(a) < \phi(b) \qquad  \text{whenever } a \prec b
+\ee
 
 \vspace{-.4in}
-\hspace{1.8in}
-leading coefficient \bm \vol \P \em %(normalized to \bm \aff \P \cap \Z^d \em\!\!) 
-and constant term \bm 1 \em\!\!.
+Ehrhart--Macdonald Reciprocity
+\ \green $\longrightarrow$ \
+\bm \displaystyle L_{\OP_\Pi} \left( \frac 1 t \right) \, = \, (-1)^{|\Pi|} \, L_{\OP_\Pi^\circ} (t) \em 
 
-\vspace{-.1in}
-\hspace{2.2in}
-\bm \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \, = \, \dfrac{ h(z) }{ (1-z)^{ d + 1 } } \em
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\headercolor Back to Graph Colorings}
+
+\bm \Gamma = (V,E) \em --- graph (without loops)
+
+\red Proper \bm n \em\!\!\red-coloring \black of \bm \Gamma \em --- \bm \x \in \{ 1, 2, \dots, n \}^V \em such that \bm x_i \not= x_j \em if \bm ij \in E \em
+
+An orientation \bm \alpha \em of \bm \Gamma \em is \red acyclic \black if it has no directed cycles
+\ \green $\longrightarrow$ \ \black
+poset \bm \Pi_\alpha \em
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\headercolor Back to Graph Colorings}
+
+\bm \Gamma = (V,E) \em --- graph (without loops)
+
+\red Proper \bm n \em\!\!\red-coloring \black of \bm \Gamma \em --- \bm \x \in \{ 1, 2, \dots, n \}^V \em such that \bm x_i \not= x_j \em if \bm ij \in E \em
+
+An orientation \bm \alpha \em of \bm \Gamma \em is \red acyclic \black if it has no directed cycles
+\ \green $\longrightarrow$ \ \black
+poset \bm \Pi_\alpha \em
+
+Graph Coloring a la Ehrhart: \
+
+\bm \displaystyle \chi_\Gamma (n) \, = \, \sum_{ \alpha } L_{\OP_{\Pi_\alpha}^\circ} (n+1) \em
+
+\vspace{-1.3in}
+\hspace{3.4in}
+\includegraphics[totalheight=3.5in]{../../../CRT-Book/David/order-polynomial}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\headercolor Back to Graph Colorings}
+
+\bm \Gamma = (V,E) \em --- graph (without loops)
+
+\red Proper \bm n \em\!\!\red-coloring \black of \bm \Gamma \em --- \bm \x \in \{ 1, 2, \dots, n \}^V \em such that \bm x_i \not= x_j \em if \bm ij \in E \em
+
+An orientation \bm \alpha \em of \bm \Gamma \em is \red acyclic \black if it has no directed cycles
+\ \green $\longrightarrow$ \ \black
+poset \bm \Pi_\alpha \em
+
+Graph Coloring a la Ehrhart: \
+
+\bm \displaystyle \chi_\Gamma (-n) \, = \, \sum_{ \alpha } L_{\OP_{\Pi_\alpha}^\circ} (-n+1) \em
+
+\vspace{-1.3in}
+\hspace{3.4in}
+\includegraphics[totalheight=3.5in]{../../../CRT-Book/David/order-polynomial}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\headercolor Back to Graph Colorings}
+
+\bm \Gamma = (V,E) \em --- graph (without loops)
+
+\red Proper \bm n \em\!\!\red-coloring \black of \bm \Gamma \em --- \bm \x \in \{ 1, 2, \dots, n \}^V \em such that \bm x_i \not= x_j \em if \bm ij \in E \em
+
+An orientation \bm \alpha \em of \bm \Gamma \em is \red acyclic \black if it has no directed cycles
+\ \green $\longrightarrow$ \ \black
+poset \bm \Pi_\alpha \em
+
+Graph Coloring a la Ehrhart: \
+
+\bm \displaystyle \chi_\Gamma (-n) \, = \, (-1)^{ |V| } \, \sum_{ \alpha } L_{\OP_{\Pi_\alpha}} (n-1) \em
+
+\vspace{-1.3in}
+\hspace{3.4in}
+\includegraphics[totalheight=3.5in]{../../../CRT-Book/David/order-polynomial}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-20pt]{\headercolor Back to Graph Colorings}
+
+\bm \Gamma = (V,E) \em --- graph (without loops)
+
+\red Proper \bm n \em\!\!\red-coloring \black of \bm \Gamma \em --- \bm \x \in \{ 1, 2, \dots, n \}^V \em such that \bm x_i \not= x_j \em if \bm ij \in E \em
+
+An orientation \bm \alpha \em of \bm \Gamma \em is \red acyclic \black if it has no directed cycles
+\ \green $\longrightarrow$ \ \black
+poset \bm \Pi_\alpha \em
+
+Graph Coloring a la Ehrhart: \
+%
+\be \displaystyle (-1)^{ |V| } \, \chi_\Gamma (-n) \, = \, \sum_{ \alpha } L_{\OP_{\Pi_\alpha}} (n-1) \ee
+%
+counts colorings with colors in \bm \{ 0, 1, \dots, n-1 \} \em with multiplicity coming from
+compatible acyclic orientations.
+
+Stanley: ``told you.''
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Recap Day III}
+
+\vspace{-.5in}
+\begin{enumerate}[\mybullet]
+\item Combinatorial reciprocity theorems 
+\item Visibility constructions \& half-open triangulations
+\item \bm h^* \em\!\!-polynomials are nonnegative
+\item Stanley reciprocity for integer-point transforms of cones
+\item Ehrhart--Macdonald reciprocity for Ehrhart \\ polynomials
+\item Order polytopes \& order-preserving maps
+\item Chromatic polynomials
+\item Tomorrow: why \bm h^* \em is called \bm h^* \em
+\end{enumerate}
+
+\vspace{-3.3in}
+\hspace{6in}
+\includegraphics[totalheight=3.3in]{matzecookie.jpg}
+
+\thawpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\thispagestyle{empty}
+\
+
+\begin{center}
+  {\green\LARGE \textbf{Ehrhart Polynomials} \\[12pt]
+\normalsize
+Day IV: From $h$ to $h^*$}
+\end{center}
+
+\vspace{-.2in}
+%\hspace{5.3in}
+\includegraphics[totalheight=5in]{../../David/sublattice3-eps-converted-to}
+
+\vspace{-4.5in} 
+\blue
+\hspace{5in}
+Matthias Beck
+\\[5pt]
+\black
+\hspace{5in}
+San Francisco State University
+\\[5pt]
+\blue
+\hspace{5in}
+https://matthbeck.github.io/
+\black
+
+\vspace{1in} 
+\hspace{5in}
+VIII Encuentro Colombiano 
+
+\vspace{-.4in} 
+\hspace{5in}
+De Combinatoria
+
+\black
+
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Any questions about yesterday?}
+
+\vspace{-.5in}
+\hspace{.4in}
+\includegraphics[totalheight=2.6in]{../../../CRT-Book/David/two-parallelpipeds}
+
+\vspace{.5in}
+%\hspace{1.4in}
+\includegraphics[totalheight=2in]{../../../CRT-Book/David/beneath-beyond-cone}
 
 \vspace{-2.9in}
-\includegraphics[totalheight=2.5in]{../ehrhart}
+\hspace{4.4in}
+\includegraphics[totalheight=3in]{../../../CRT-Book/David/order-polynomial}
 
-\hspace{1in}
-$\longrightarrow$ \quad \bm L_{ \P^\circ } (t) \, = \, h^*_d \binom{ t+d-1 } d + h^*_{d-1} \binom{ t+d-2 } d + \dots + h^*_0 \binom{ t-1 } d \em
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\foilhead{\green Today's Menu: $h^*$-deliberations from Triangulations }
+\foilhead{\green Today's Menu: connect with Bella's Minicourse}
+
+\vspace{-.2in}
+\begin{enumerate}[\mybullet]
+\item Unimodular triangulations
+\vspace{-.1in}
+\item \bm f \em\!\!- and \bm h \em\!\!-vectors of triangulations
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Unimodular Triangulations}
+
+A lattice \bm d \em\!\!-simplex with volume \bm \frac{ 1 }{ d! } \em is \red unimodular
+\black
+
+Alternative description: if the simplex has vertices \bm v_{0}, v_{1}, \ldots, v_{d} \em\!\!, the vectors \bm v_{1} - v_{0}, \ldots, v_{d} - v_{0} \em form a basis of \bm \Z^d \em\!\!.
+
+Every lattice polygon admits a unimodular triangulation, the regular tetrahedron with
+vertices \bm \left( 0,0,0 \right) , \left( 1,1,0 \right) , \left( 1,0,1 \right) , \left(
+0,1,1 \right) \em does not.
+
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Unimodular Triangulations}
+
+A lattice \bm d \em\!\!-simplex with volume \bm \frac{ 1 }{ d! } \em is \red unimodular
+\black
+
+Alternative description: if the simplex has vertices \bm v_{0}, v_{1}, \ldots, v_{d} \em\!\!, the vectors \bm v_{1} - v_{0}, \ldots, v_{d} - v_{0} \em form a basis of \bm \Z^d \em\!\!.
+
+Every lattice polygon admits a unimodular triangulation, the regular tetrahedron with
+vertices \bm \left( 0,0,0 \right) , \left( 1,1,0 \right) , \left( 1,0,1 \right) , \left(
+0,1,1 \right) \em does not.
+
+\red Theorem \black (Kempf--Knudsen--Mumford--Saint-Donat--Waterman 1970's)\\
+For every lattice polytope \bm \P \em there exists an integer \bm m \em such that \bm m \P \em admits a regular unimodular triangulation.
+
+\red Theorem \black (Liu 2024+)
+For every lattice polytope \bm \P \em there exists an integer \bm m \em such that \bm k\P \em admits a regular unimodular triangulation for \bm k \ge m \em\!\!.
+
+\red Conjecture \black
+There exists an integer \bm m_d \em such that, if \bm \P \em is a \bm d \em\!\!-dimensional lattice polytope, then \bm m_d \P \em admits a regular unimodular triangulation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green $f$- and $h$-vectors of triangulation}
+
+\bm f_k \em --- number of \bm k \em\!\!-simplices in a given triangulation \bm T \em of a
+polytope
+
+\bm f_{ -1 } := 1 \em
+
+\vspace{-.3in}
+\bm h \em\!\!-\red polynomial \black of \bm T \em
+\bm \displaystyle \qquad\qquad
+h_T(z) := \sum_{ k=-1 }^{ d } f_k \, z^{ k+1} \, (1-z)^{ d-k } 
+\em
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green $f$- and $h$-vectors of triangulation}
+
+\bm f_k \em --- number of \bm k \em\!\!-simplices in a given triangulation \bm T \em of a
+polytope
+
+\bm f_{ -1 } := 1 \em
+
+\vspace{-.3in}
+\bm h \em\!\!-\red polynomial \black of \bm T \em
+\bm \displaystyle \qquad\qquad
+h_T(z) := \sum_{ k=-1 }^{ d } f_k \, z^{ k+1} \, (1-z)^{ d-k } 
+\em
+
+For a \red boundary \black triangulation \bm T \em one defines 
+
+\bm \displaystyle 
+h_T(z) := \sum_{ k=-1 }^{ d-1 } f_k \, z^{ k+1} \, (1-z)^{ d-1-k } 
+\em
+
+and if this triangulation is regular, \\ Dehn--Sommerville holds.
+
+\vspace{-3.3in}
+\hspace{4.9in}
+\includegraphics[totalheight=4in]{../../David/vertexfig}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Unimodular Triangulations and $h^*$}
+
+A lattice \bm d \em\!\!-simplex with volume \bm \frac{ 1 }{ d! } \em is \red unimodular
+\black
+
+Alternative description: if the simplex has vertices \bm v_{0}, v_{1}, \ldots, v_{d} \em\!\!, the vectors \bm v_{1} - v_{0}, \ldots, v_{d} - v_{0} \em form a basis of \bm \Z^d \em\!\!.
+
+If \bm \Delta \em is a unimodular \bm k \em\!\!-simplex then \ \
+\bm \displaystyle
+\Ehr_\Delta(z) \, = \, \frac{ 1 }{ (1-z)^{ k+1 } } 
+\em 
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Unimodular Triangulations and $h^*$}
+
+A lattice \bm d \em\!\!-simplex with volume \bm \frac{ 1 }{ d! } \em is \red unimodular
+\black
+
+Alternative description: if the simplex has vertices \bm v_{0}, v_{1}, \ldots, v_{d} \em\!\!, the vectors \bm v_{1} - v_{0}, \ldots, v_{d} - v_{0} \em form a basis of \bm \Z^d \em\!\!.
+
+If \bm \Delta \em is a unimodular \bm k \em\!\!-simplex then \ \
+\bm \displaystyle
+\Ehr_\Delta(z) \, = \, \frac{ 1 }{ (1-z)^{ k+1 } } 
+\em 
+
+Ehrhart--Macdonald Reciprocity
+\ \green $\longrightarrow$ \ \
+\bm \displaystyle
+\Ehr_{ \Delta^\circ } (z) \, = \, \left( \frac{ z }{ 1-z } \right)^{ k+1 } 
+\em
 
 \vspace{.3in}
-\red Theorem \black (Stanley 1980) \bm h^*_0, h^*_1, \dots, h^*_d \em are nonnegative integers.
+\red The Point \black \ These Ehrhart series can help us count things.
 
-\vspace{.3in}
-\red Corollary \black \ If \bm h^*_{d+1-k} > 0 \em then \bm k \P^\circ \em contains an integer point.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Unimodular Triangulations and $h^*$}
+
+If \bm \Delta \em is a unimodular \bm k \em\!\!-simplex then \ \
+\bm \displaystyle
+\Ehr_{ \Delta^\circ } (z) \, = \, \left( \frac{ z }{ 1-z } \right)^{ k+1 } 
+\em
+
+%\vspace{-3.3in}
+\hspace{.5in}
+\includegraphics[totalheight=1.9in]{../../David/triangdecomp}
+
+If \bm \P \em admits a unimodular triangulation \bm T \em then
+%
+%\vspace{-.2in}
+\be \displaystyle
+\Ehr_\P(z)
+\, = \, 1 + \sum_{ k=0 }^{ d } f_k \left( \frac{ z }{ 1-z } \right)^{ k + 1 }
+\, = \, \frac{ \sum_{ k=-1 }^{ d } f_k \, z^{ k+1 } (1-z)^{ d-k } }{ (1-z)^{ d+1 } }
+\ee
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Unimodular Triangulations and $h^*$}
+
+If \bm \Delta \em is a unimodular \bm k \em\!\!-simplex then \ \
+\bm \displaystyle
+\Ehr_{ \Delta^\circ } (z) \, = \, \left( \frac{ z }{ 1-z } \right)^{ k+1 } 
+\em
+
+%\vspace{-3.3in}
+\hspace{.5in}
+\includegraphics[totalheight=1.9in]{../../David/triangdecomp}
+
+If \bm \P \em admits a unimodular triangulation \bm T \em then
+%
+\be \displaystyle
+\Ehr_\P(z)
+\, = \, \frac{ \sum_{ k=-1 }^{ d } f_k \, z^{ k+1 } (1-z)^{ d-k } }{ (1-z)^{ d+1 } }
+\, = \, \frac{ h_T(z) }{ (1-z)^{ d+1 } }
+\ee
+%
+that is, \
+\bm h_\P^* (z) = h_T(z) \em
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

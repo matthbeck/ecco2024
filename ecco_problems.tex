@@ -14,8 +14,12 @@
 
 \def\be{\mathbf{e}}
 \def\bq{\mathbf{q}}
+\def\v{\mathbf{v}}
 \def\bv{\mathbf{v}}
+\def\x{\mathbf{x}}
 \def\bx{\mathbf{x}}
+\def\u{\mathbf{u}}
+\def\y{\mathbf{y}}
 \def\0{\mathbf{0}}
 \def\cB{\mathcal{B}}
 \def\cP{\mathcal{P}}
@@ -25,6 +29,7 @@
 \def\ZZ{\mathbb{Z}}
 \def\hopen{\mathbb{H}}
 \newcommand\Ehr{\operatorname{Ehr}} 
+\newcommand\conv{\operatorname{conv}} 
 \newcommand\cone{\operatorname{cone}} 
 \newcommand\vol{\operatorname{vol}} 
 \DeclareMathOperator{\LH}{LH}
@@ -372,8 +377,72 @@ then $\cP$ is reflexive if and only if $ h^*_k = h^*_{ d-k }$ for all $0 \le k
 \item Derive inequalities for the coefficients of $h(z)$ if we know that both $a(z)$ and $b(z)$ have only nonnegative
 coefficients.
 
+\end{enumerate}
+
+\newpage
+\begin{center}
+\Large{\bf Ehrhart Polynomials} 
+
+\normalsize
+VIII Encuentro Colombiano De Combinatoria
+\end{center}
+
+\paragraph{Day IV: From $h$ to $h^*$}
+
+\begin{enumerate}[(1)]
+\vspace{-10pt}
+
+\item If you haven't done so already, work on the last two exercises from yesterday.
+
+\item Let $\hopen_\bq \Delta$ be a unimodular simplex with $r$ facets missing. Show that
+$h^*_{\hopen_\bq \Delta } (z) = z^r$.
+Use this to give an alternative description of the $h^*$-polynomial of a lattice polytope
+that admits a unimodular triangulation.
+
+\item Given a triangulation $T$ of the boundary of a $d$-polytope $\cP$ and a point $\v \in \cP^\circ$, construct a
+triangulation $K$ of $\cP$ consisting of $T$ with the simplices $\conv(\Delta, \v)$ for all $\Delta \in T$ appended; i.e., the new triangulation $K$ comes from coning over $T$. Prove that
+\[
+h_K(z) = h_T(z) \, .
+\]
+
+\item A lattice polytope is polytope $\cP$ has the \emph{integer decomposition property (IDP)} if for every positive integer $k$ and every integer
+point $\x \in k \cP$, there exist integer points $\y_1,\y_2,\dots,\y_k \in \cP$ such that $\y_1+\y_2+\dots+\y_k=\x$. Prove that every
+polytope that admits a unimodular triangulation is IDP.
+
+\item  Let $\cP$ be a $d$-dimensional lattice polytope. Show that if $T$ is a
+    unimodular triangulation of $\cP$, then the $f$-vector of $T$ can be computed via
+    \[
+        f_{k-1} \ = \ \sum_{r=0}^k \binom{d+1-r}{k-r} \, h^*_r(\cP) 
+    \]
+and conclude that $f_T(z) = h^*_{ \cP^\circ } (z+1)$.
+
+\item Under the same conditions as in the previous exercise, let $f_T^{ \rm int } (z)$ be the
+polynomial whose $k$th coefficient counts the number of $k$-simplices that are not on the
+boundary of $P$. Prove that $f_T^{ \rm int } (z) = h_\cP^*(z+1)$.
+
+\item    Let $\Delta = \conv(\u_0,\dots,\u_{d}) \subset \RR^{d}$, $\Delta' =
+    \conv(\v_0,\dots,\v_{e}) \subset \RR^{e}$ be two unimodular simplices
+    and let $\cP = \Delta \times \Delta'$ be their Cartesian product.
+    \begin{enumerate}[(a)]
+        \item Show that any $(d+e)$-simplex spanned by the vertices of $\cP$
+            is unimodular.
+        \item We can identify the vertices of $\cP$ with the nodes of the
+            square grid $\{0,\dots,d\} \times \{0,\dots,e\}$.  A
+            \emph{lattice path} from $(0,0)$ to $(d,e)$ is a path on the
+            grid that uses only unit steps $\rightarrow$ and $\uparrow$. Show
+            that any such path encodes a unique $(d+e)$-simplex of $\cP$.
+        \item Show that the collection of all such simplices yields a
+            triangulation of~$\cP$.
+        \item Compute the $h^*$-vector of~$\cP$.
+    \end{enumerate}
 
 \end{enumerate}
+
+% ========================================================
+
+{\sc Matthias Beck} \hfill {\tt https://matthbeck.github.io/}
+
+% ========================================================
 
 \end{document}
 
