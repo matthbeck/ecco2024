@@ -2510,7 +2510,7 @@ Let \bm \P \em be a lattice \bm d \em\!\!-polytope. Then
 \ee 
 %
 \red Corollary$^3$ \black (Ehrhart--Macdonald) \ \ 
-\bm \displaystyle L_\P \left( \frac 1 t \right) \, = \, (-1)^{d} \, L_{\P^\circ} (t) \em 
+\bm \displaystyle L_\P \left( -t \right) \, = \, (-1)^{d} \, L_{\P^\circ} (t) \em 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2575,7 +2575,7 @@ strictly order preserving maps \bm \Pi \to \{ 1, \dots, t-1 \} \em
 \vspace{-.4in}
 Ehrhart--Macdonald Reciprocity
 \ \green $\longrightarrow$ \
-\bm \displaystyle L_{\OP_\Pi} \left( \frac 1 t \right) \, = \, (-1)^{|\Pi|} \, L_{\OP_\Pi^\circ} (t) \em 
+\bm \displaystyle L_{\OP_\Pi} \left( -t \right) \, = \, (-1)^{|\Pi|} \, L_{\OP_\Pi^\circ} (t) \em 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2934,107 +2934,111 @@ If \bm \P \em admits a unimodular triangulation \bm T \em then
 that is, \
 \bm h_\P^* (z) = h_T(z) \em
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\foilhead[-29pt]{\green Positivity Among Ehrhart Polynomials}
+\foilhead[-29pt]{\green Stapledon Decompositions}
 
-\hspace{1.8in}
-\red Theorem \black
-(Ehrhart 1962) 
-For any lattice polytope \bm \P \em\!\!,
+If \bm \P \em admits a unimodular triangulation \bm T \em then
+\bm h_\P^* (z) = h_T(z) \em
 
-\vspace{-.4in}
-\hspace{1.8in}
-\bm L_\P (t) \em is a polynomial in \bm t \em of
-degree \bm d := \dim \P \em with 
-
-\vspace{-.4in}
-\hspace{1.8in}
-leading coefficient \bm \vol \P \em %(normalized to \bm \aff \P \cap \Z^d \em\!\!) 
-and constant term \bm 1 \em\!\!.
-
-\vspace{-.1in}
-\hspace{2.2in}
-\bm \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \, = \, \dfrac{ h(z) }{ (1-z)^{ d + 1 } } \em
-
-\vspace{-2.9in}
-\includegraphics[totalheight=2.5in]{../ehrhart}
-
-\red Theorem \black (Stanley 1980) \bm h^*_0, h^*_1, \dots, h^*_d \em are nonnegative integers.
-
-\red Theorem \black (Betke--McMullen 1985, Stapledon 2009)
-If \bm h^*_d > 0 \em then
-\be
-  h(z) \, = \, a(z) + z \, b(z)
-\ee
-where \bm a(z) = z^d \, a(\frac 1 z) \em and \bm \ b(z) = z^{ d-1 } \, b(\frac 1 z) \em with nonnegative coefficients.
+What if not?
 
 \thawpage
 \freezepage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\foilhead[-20pt]{\green Positivity Among Ehrhart Polynomials}
+\foilhead[-29pt]{\green Stapledon Decompositions}
 
-\hspace{1.8in}
-\red Theorem \black
-(Ehrhart 1962) 
-For any lattice polytope \bm \P \em\!\!,
+If \bm \P \em admits a unimodular triangulation \bm T \em then
+\bm h_\P^* (z) = h_T(z) \em
 
-\vspace{-.4in}
-\hspace{1.8in}
-\bm L_\P (t) \em is a polynomial in \bm t \em of
-degree \bm d := \dim \P \em with 
+What if not?
 
-\vspace{-.4in}
-\hspace{1.8in}
-leading coefficient \bm \vol \P \em %(normalized to \bm \aff \P \cap \Z^d \em\!\!) 
-and constant term \bm 1 \em\!\!.
+The \red degree \bm s \em of a lattice polytope \bm \P \em is the degree of \bm h_\P^*(z) \em
 
-\vspace{-.1in}
-\hspace{2.2in}
-\bm \displaystyle \Ehr_\P (z) \, := \, 1 + \sum_{ t \ge 1 } L_\P (t) \, z^t \, = \, \dfrac{ h(z) }{ (1-z)^{ d + 1 } } \em
+\red Codegree \bm d+1 - s \em
+\ \ \ \green $\longleftarrow$ \black \ smallest integer \bm \ell \em such that \bm \ell \P^\circ \cap \Z^d \ne
+\varnothing \em
 
-\vspace{-2.9in}
-\includegraphics[totalheight=2.5in]{../ehrhart}
-
-\red Theorem \black (Stanley 1980) \bm h^*_0, h^*_1, \dots, h^*_d \em are nonnegative integers.
-
-\red Theorem \black (Betke--McMullen 1985, Stapledon 2009)
-If \bm h^*_d > 0 \em then
+\red Theorem \black (Stapledon 2009) 
+If \bm \P \em is a lattice \bm d \em\!\!-polytope with codegree \bm \ell \em then
 \be
-  h(z) \, = \, a(z) + z \, b(z)
+  \left( 1 + z + \dots + z^{ \ell - 1 } \right) h_\P^* (z) \, = \, a(z) + z^\ell \, b(z)
 \ee
-where \bm a(z) = z^d \, a(\frac 1 z) \em and \bm \ b(z) = z^{ d-1 } \, b(\frac 1 z) \em with nonnegative coefficients.
+
+\vspace{-.5in}
+where 
+\bm a(z) = z^d \, a(\tfrac 1 z) \, , \  b(z) = z^{ d-\ell } \, b(\tfrac 1 z) \em and
+\bm a(z) \em and \bm b(z) \em are nonnegative.
+
+The case \bm \ell = 1 \em was proved by Betke \& McMullen (1985).
+There is a version for rational polytopes (\MB\!--Braun--Vindas-Mel\'endez 2022).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Stapledon Decompositions}
+
+The \red degree \bm s \em of a lattice polytope \bm \P \em is the degree of \bm h_\P^*(z) \em
+
+\red Codegree \bm d+1 - s \em
+\ \ \ \green $\longleftarrow$ \black \ smallest integer \bm \ell \em such that \bm \ell \P^\circ \cap \Z^d \ne
+\varnothing \em
+
+\red Theorem \black (Stapledon 2009) 
+If \bm \P \em is a lattice \bm d \em\!\!-polytope with codegree \bm \ell \em then
+\be
+  \left( 1 + z + \dots + z^{ \ell - 1 } \right) h_\P^* (z) \, = \, a(z) + z^\ell \, b(z)
+\ee
+
+\vspace{-.5in}
+where 
+\bm a(z) = z^d \, a(\tfrac 1 z) \, , \  b(z) = z^{ d-\ell } \, b(\tfrac 1 z) \em and
+\bm a(z) \em and \bm b(z) \em are nonnegative.
+
+\red Topological story \black \ 
+\bm a(z) \em and \bm b(z) \em can be written in terms of \bm h \em\!\!-polynomials of links
+of a given triangulation of \bm \P \em and associated arithmetic datat (``box polynomials'').
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Stapledon Decompositions}
+
+The \red degree \bm s \em of a lattice polytope \bm \P \em is the degree of \bm h_\P^*(z) \em
+
+\red Codegree \bm d+1 - s \em
+\ \ \ \green $\longleftarrow$ \black \ smallest integer \bm \ell \em such that \bm \ell \P^\circ \cap \Z^d \ne
+\varnothing \em
+
+\red Theorem \black (Stapledon 2009) 
+If \bm \P \em is a lattice \bm d \em\!\!-polytope with codegree \bm \ell \em then
+\be
+  \left( 1 + z + \dots + z^{ \ell - 1 } \right) h_\P^* (z) \, = \, a(z) + z^\ell \, b(z)
+\ee
+
+\vspace{-.5in}
+where 
+\bm a(z) = z^d \, a(\tfrac 1 z) \, , \  b(z) = z^{ d-\ell } \, b(\tfrac 1 z) \em and
+\bm a(z) \em and \bm b(z) \em are nonnegative.
+
+\red Topological story \black \ 
+\bm a(z) \em and \bm b(z) \em can be written in terms of \bm h \em\!\!-polynomials of links
+of a given triangulation of \bm \P \em and associated arithmetic datat (``box polynomials'').
+
+\red Corollary \black \ Inequalities for \bm h^* \em\!\!-coefficients
+\ \ \ \green $\longleftarrow$ \black \ Exercises
 
 \red Open Problem \black \
-Try to prove the analogous theorem for your favorite combinatorial polynomial with nonnegative coefficients.
+Try to prove an analogous theorem for your favorite combinatorial polynomial with nonnegative coefficients.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Boundary $h^*$-polynomials}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\foilhead{\green Any questions about yesterday?}
-
-\vspace{-.1in}
-\hspace{4.3in}
-\includegraphics[totalheight=2in]{../../David/preface_disc-eps-converted-to}
-\hspace{-.1in}
-\includegraphics[totalheight=2in]{../../David/preface_cont-eps-converted-to}
-
-\vspace{-2.9in}
-\includegraphics[totalheight=3.3in]{../../David/octahedron-eps-converted-to}
-
-\vspace{-.5in}
-\includegraphics[totalheight=3in]{../../David/zonotopepaving-eps-converted-to}
-
-\vspace{-3.3in}
-\hspace{6in}
-\includegraphics[totalheight=3in]{../../David/trunccube_arrows-eps-converted-to}
 
 
