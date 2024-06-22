@@ -2758,14 +2758,24 @@ De Combinatoria
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\foilhead{\green Today's Menu: $h^*$-deliberations from Triangulations }
-\foilhead{\green Today's Menu: connect with Bella's Minicourse}
+\foilhead{\green Today's Menu: Connections with Bella's Minicourse}
 
 \vspace{-.2in}
 \begin{enumerate}[\mybullet]
 \item Unimodular triangulations
 \vspace{-.1in}
 \item \bm f \em\!\!- and \bm h \em\!\!-vectors of triangulations
+\vspace{-.1in}
+\item Symmetric decompositions \\ of \bm h^* \em\!\!-polynomials
+\vspace{-.1in}
+\item Boundary \bm h^* \em\!\!-polynomials
+\vspace{-.1in}
+\item An ECCO story
 \end{enumerate}
+
+\vspace{-3.3in}
+\hspace{4.9in}
+\includegraphics[totalheight=4in]{../../David/vertexfig}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -3034,11 +3044,255 @@ Try to prove an analogous theorem for your favorite combinatorial polynomial wit
 
 \foilhead[-29pt]{\green Boundary $h^*$-polynomials}
 
+\def\hstar{h^*}
 
+\red Definition \black \ \ 
+\bm \displaystyle
+\Ehr_{\partial \P}(z) \, := \, 1 + \sum_{n\geq1} L_{\partial \P}(n)z^n=\frac{\hstar_{\partial P}(z)}{(1-z)^{d}}
+\em
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Boundary $h^*$-polynomials}
+
+\def\hstar{h^*}
+
+\red Definition \black \ \ 
+\bm \displaystyle
+\Ehr_{\partial \P}(z) \, := \, 1 + \sum_{n\geq1} L_{\partial \P}(n)z^n=\frac{\hstar_{\partial P}(z)}{(1-z)^{d}}
+\em
+
+\red Theorem \black (Stapledon 2009) 
+If \bm \P \em is a lattice \bm d \em\!\!-polytope with codegree \bm \ell \em then
+\be
+  \left( 1 + z + \dots + z^{ \ell - 1 } \right) h_\P^* (z) \, = \, a(z) + z^\ell \, b(z)
+\ee
+
+\vspace{-.6in}
+where 
+\bm a(z) = z^d \, a(\tfrac 1 z) \, , \  b(z) = z^{ d-\ell } \, b(\tfrac 1 z) \em and
+\bm a(z) \em and \bm b(z) \em are nonnegative.
+
+\vspace{-.2in}
+\hspace{.9in}
+\green $\uparrow$
+
+\vspace{-.2in}
+\hspace{.6in}
+\bm \hstar_{\partial P}(z) \em
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Boundary $h^*$-polynomials}
+
+If \bm \P \em is a lattice \bm d \em\!\!-polytope with codegree \bm \ell = 1 \em then
+\be
+  h_\P^* (z) \, = \, a(z) + z \, b(z)
+\ee
+
+\vspace{-.7in}
+where 
+\bm a(z) = z^d \, a(\tfrac 1 z) \, , \  b(z) = z^{ d-1 } \, b(\tfrac 1 z) \em and
+\bm a(z) \em and \bm b(z) \em are nonnegative.
+
+\vspace{-.2in}
+\hspace{.9in}
+\green $\uparrow$
+
+\vspace{-.2in}
+\hspace{.6in}
+\bm \hstar_{\partial P}(z) \em
+
+\vspace{-.2in}
+\hspace{2.9in}
+\red Idea \black \ Cone over a half-open boundary triangulation
+
+\vspace{.2in}
+\begin{tikzpicture}[scale=1.5]
+                \node[fill=black, draw=black, shape=circle, scale=0.3] (a) at (0,3) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](ab) at (0,1) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](b) at (0,0) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](c) at (3,3) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](d) at (3,0) {} ;
+                \draw (a) -- (b) ;
+                \draw (c) -- (d) ;
+                \draw (a) -- (c) ;
+                \draw (b) -- (d) ;
+
+
+                \node[fill=black, draw=black, shape=circle, scale=0.3] (a) at (4,3) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](ab) at (4,1) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](b) at (4,0) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](c) at (7,3) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](d) at (7,0) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](x) at (6,2) {} ;
+                \node[fill=black, draw=black, shape=circle, scale=0.3](q) at (5.4, 0.4) {} ;
+                \draw (a) -- (b) ;
+                \draw (c) -- (d) ;
+                \draw (a) -- (c) ;
+                \draw (b) -- (d) ;
+                \draw (a) -- (x) ;
+                \draw (b) -- (x) ;
+                \draw (c) -- (x) ;
+                \draw (d) -- (x) ;
+                \draw (ab) -- (x) ;
+
+                
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3] (a-closed) at (8,3) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3] (a-open) at (8.2,3) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](ab-open) at (8,1.2) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](ab-closed) at (8,1) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](b-closed) at (8,0) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](b-open) at (8,0.2) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](c-open) at (11,3) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](c-closed) at (11,2.8) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](d-open) at (11,0.2) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](d-closed) at (11,0) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](x-b-d) at (10,1.9) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](x-b-ab) at (9.85,1.95) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](x-ab-a) at (9.85,2.1) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](x-a-c) at (10,2.2) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](x-c-d) at (10.1,2.05) {} ;
+                \draw[thick,blue] (b-open) -- (ab-closed) ;
+                \draw[thick,blue] (ab-open) -- (a-closed) ;
+                \draw[thick, blue] (a-open) -- (c-open) ;
+                \draw[thick, blue] (c-closed) -- (d-open) ;
+                \draw[thick, blue] (d-closed) -- (b-closed) ;
+                \draw[thick, blue] (b-closed) -- (x-b-d) ;
+                \draw[thick, blue] (d-closed) -- (x-b-d) ;
+                \draw[thick, orange, dashed] (d-open) -- (x-c-d) ;
+                \draw[thick, blue] (c-closed) -- (x-c-d) ;
+                \draw[thick, orange, dashed] (c-open) -- (x-a-c) ;
+                \draw[thick, orange, dashed] (a-open) -- (x-a-c) ;
+                \draw[thick, blue] (a-closed) -- (x-ab-a) ;
+                \draw[thick, orange, dashed] (ab-open) -- (x-ab-a) ;
+                \draw[thick, blue] (ab-closed) -- (x-b-ab) ;
+                \draw[thick, orange, dashed] (b-open) -- (x-b-ab) ;
+
+                
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3] (a-closed) at (12,3) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3] (a-open) at (12.2,3) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](ab-open) at (12,1.2) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](ab-closed) at (12,1) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](b-closed) at (12,0) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](b-open) at (12,0.2) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](c-open) at (15,3) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](c-closed) at (15,2.8) {} ;
+                \node[fill=none, draw=orange, shape=circle, scale=0.3](d-open) at (15,0.2) {} ;
+                \node[fill=blue, draw=blue, shape=circle, scale=0.3](d-closed) at (15,0) {} ;
+                \draw[thick,blue] (b-open) -- (ab-closed) ;
+                \draw[thick,blue] (ab-open) -- (a-closed) ;
+                \draw[thick, blue] (a-open) -- (c-open) ;
+                \draw[thick, blue] (c-closed) -- (d-open) ;
+                \draw[thick, blue] (d-closed) -- (b-closed) ;
+\end{tikzpicture}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green Boundary $h^*$-polynomials}
+
+If \bm \P \em is a lattice \bm d \em\!\!-polytope with codegree \bm \ell = 1 \em then
+\be
+  h_\P^* (z) \, = \, a(z) + z \, b(z)
+\ee
+
+\vspace{-.7in}
+where 
+\bm a(z) = z^d \, a(\tfrac 1 z) \, , \  b(z) = z^{ d-1 } \, b(\tfrac 1 z) \em and
+\bm a(z) \em and \bm b(z) \em are nonnegative.
+
+\red Proof Idea \black (Bajo--\MB 2023)
+
+\vspace{-.3in}
+\begin{enumerate}[\mybullet]
+\item fix a half-open triangulation \bm T \em of \bm \partial \P \em and extend \bm T \em to a
+half-open triangulation of \bm \P \em by coning over an interior lattice point \bm \x \em
+\item convince yourself that \bm a(z) = \hstar_{\partial \P}(z) \em is palindromic with
+positive coefficients
+\item realize that the \bm \hstar \em\!\!-polynomial of each half-open simplex \bm \Delta \in
+T \em is coefficient-wise less than or equal to the \bm \hstar \em\!\!-polynomial of \bm
+\conv(\Delta, \x) \em and thus \bm \hstar_P(z) - a(z) \em
+has nonnegative coefficients.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green An ECCO Story}
+
+\red Theorem \black (Stapledon 2009) 
+If \bm \P \em is a lattice \bm d \em\!\!-polytope with codegree \bm \ell \em then
+\be
+  \left( 1 + z + \dots + z^{ \ell - 1 } \right) h_\P^* (z) \, = \, a(z) + z^\ell \, b(z)
+\ee
+
+\vspace{-.5in}
+where 
+\bm a(z) = z^d \, a(\tfrac 1 z) \, , \  b(z) = z^{ d-\ell } \, b(\tfrac 1 z) \em and
+\bm a(z) \em and \bm b(z) \em are nonnegative.
+
+\red Open Problem \black \
+Try to prove an analogous theorem for your favorite combinatorial polynomial with nonnegative coefficients.
+
+\thawpage
+\freezepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead[-29pt]{\green An ECCO Story}
+
+\red Theorem \black (Stapledon 2009) 
+If \bm \P \em is a lattice \bm d \em\!\!-polytope with codegree \bm \ell \em then
+\be
+  \left( 1 + z + \dots + z^{ \ell - 1 } \right) h_\P^* (z) \, = \, a(z) + z^\ell \, b(z)
+\ee
+
+\vspace{-.5in}
+where 
+\bm a(z) = z^d \, a(\tfrac 1 z) \, , \  b(z) = z^{ d-\ell } \, b(\tfrac 1 z) \em and
+\bm a(z) \em and \bm b(z) \em are nonnegative.
+
+\red Open Problem \black \
+Try to prove an analogous theorem for your favorite combinatorial polynomial with nonnegative coefficients.
+
+\red Theorem \black (\MB\!--Le\'on 2021) \
+Given a graph \bm G \em on \bm d \em nodes, let
+\be   \sum_{ n \ge 1 } \chi_G(n) \, z^n \ = \ \frac{ \chi^*_G(z) }{ (1-z)^{ d+1 } } \, . \ee
+Then 
+\bm
+  \chi^*_{ 1 } \le \chi^*_{ 2 } \le \dots \le \chi^*_{ \lfloor \frac{ d+1 }{ 2 } \rfloor } 
+\em
+and \bm \chi^*_{ j } \le \chi^*_{ d-j } \em for \bm 1 \le j \le \tfrac {d-1} 2 \em\!\!.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green Recap Day IV}
+
+\vspace{-.5in}
+\begin{enumerate}[\mybullet]
+\item Unimodular triangulations 
+\item \bm h \em\!\!-polynomials of triangulations \ $\longrightarrow$ \ \bm h^* \em\!\!-polynomials
+\item Symmetric decompositions of polynomials
+\item Stapledon decompositions of \bm h^* \em\!\!-polynomials
+\item Boundary \bm h^* \em\!\!-polynomials
+\end{enumerate}
+
+\vspace{-1.3in}
+\hspace{5.7in}
+\includegraphics[totalheight=3.3in]{kumi.jpg}
+
+\thawpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foilhead{\green ¡Gracias!}
+
+\begin{center}
+\includegraphics[totalheight=4.3in]{ecco_poster.jpg}
+\end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
-
 
